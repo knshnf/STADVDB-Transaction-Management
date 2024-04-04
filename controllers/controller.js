@@ -20,7 +20,7 @@ const controller = {
         res.render('update');
     },
 
-    getView: function(req, res) {
+    getDelete: function(req, res) {
         res.render('delete');
     },
 
