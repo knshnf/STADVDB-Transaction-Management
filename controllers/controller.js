@@ -1,5 +1,4 @@
 const controller = {
-    /* current home page is establishments-list */
     getIndex: function(req, res) {
         res.render('index');
     },
