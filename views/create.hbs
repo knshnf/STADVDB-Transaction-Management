@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> STADVDB Transaction Management </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="flex flex-col items-center gap-6">
+        <h1 class="mt-5 text-lg"> Create an appointment </h1>
+        <div class="flex flex-col gap-4">
+            <input type="number" id="patient-age" name="patient-age" placeholder="Patient Age"
+                class="border border-gray-400 p-2 rounded" min="0">
+            <select id="patient-gender" name="patient-gender" class="border border-gray-400 p-2 rounded">
+                <option value="" disabled selected>Select Patient Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" id="hospital-name" name="hospital-name" placeholder="Hospital Name"
+                class="border border-gray-400 p-2 rounded">
+            <input type="date" id="queue-date" name="queue-date" placeholder="Queue Date"
+                class="border border-gray-400 p-2 rounded">
+            <input type="text" id="province" name="province" placeholder="Province"
+                class="border border-gray-400 p-2 rounded">
+            <input type="text" id="region-name" name="region-name" placeholder="Region Name"
+                class="border border-gray-400 p-2 rounded">
+            <input type="text" id="main-specialty" name="main-specialty" placeholder="Main Specialty"
+                class="border border-gray-400 p-2 rounded">
+            <button type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+        </div>
+    </div>
+</body>
+
+</html>

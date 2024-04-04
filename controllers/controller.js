@@ -8,12 +8,20 @@ const controller = {
         res.redirect('/');
     },
 
-    /* login page will be the root unless logged in */
-    getRoot: function(req, res) {
-        if (req.session.user)
-            res.redirect('/establishments-list');
-        else
-            res.render('login');
+    getCreate: function(req, res) {
+        res.render('create');
+    },
+
+    getView: function(req, res) {
+        res.render('view');
+    },
+
+    getUpdate: function(req, res) {
+        res.render('update');
+    },
+
+    getView: function(req, res) {
+        res.render('delete');
     },
 
     getError: function(req, res) {

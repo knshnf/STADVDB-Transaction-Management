@@ -3,6 +3,7 @@ const app = express();
 const controller = require('../controllers/controller.js');
 
 app.get('/', controller.getIndex);
+app.get('/create', controller.getCreate);
 
 
 //Error
