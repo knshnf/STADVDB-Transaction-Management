@@ -9,7 +9,8 @@ const db = require('./models/db.js');
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
 app.use(express.static('files'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use('/', routes);
 
 dotenv.config();

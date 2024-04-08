@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <script type="text/javascript" src="../js/create.js"></script>
     <div class="flex flex-col items-center gap-6">
         <h1 class="mt-5 text-lg"> Create an appointment </h1>
         <div class="flex flex-col gap-4">
@@ -18,21 +19,22 @@
                 class="border border-gray-400 p-2 rounded" min="0">
             <select id="patient-gender" name="patient-gender" class="border border-gray-400 p-2 rounded">
                 <option value="" disabled selected>Select Patient Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+                <option value="OTHER">Other</option>
             </select>
             <input type="text" id="hospital-name" name="hospital-name" placeholder="Hospital Name"
                 class="border border-gray-400 p-2 rounded">
             <input type="date" id="queue-date" name="queue-date" placeholder="Queue Date"
                 class="border border-gray-400 p-2 rounded">
+            <input type="text" id="city" name="city" placeholder="City" class="border border-gray-400 p-2 rounded">
             <input type="text" id="province" name="province" placeholder="Province"
                 class="border border-gray-400 p-2 rounded">
             <input type="text" id="region-name" name="region-name" placeholder="Region Name"
                 class="border border-gray-400 p-2 rounded">
             <input type="text" id="main-specialty" name="main-specialty" placeholder="Main Specialty"
                 class="border border-gray-400 p-2 rounded">
-            <button type="submit"
+            <button id="create-appointment" type="submit"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create</button>
         </div>
     </div>
