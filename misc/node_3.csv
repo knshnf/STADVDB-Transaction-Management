@@ -1,0 +1,375 @@
+appt_id,age,gender,hospital_name,queue_date,city,province,region_name,main_specialty
+F450DC986641E2C11F3499DF378058B6,16,FEMALE,ACE Dumaguete Doctors,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+3781C857A4A7DF9DB0B441BE1B5133D5,29,FEMALE,ACE Dumaguete Doctors,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+065B80E34BFB48870AF7ACD6CE9A31AE,49,FEMALE,ACE Dumaguete Doctors,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+16CC24CF0F700F3FC6C5DC4C149D8CBD,51,MALE,ACE Dumaguete Doctors,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+1FAC3DF08309F37845BA1536DBFF9618,24,MALE,ACE Dumaguete Doctors,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+B25317D085912DC2DFC68299C632B456,84,MALE,ACE Dumaguete Doctors,2024-01-04,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+D7FD4348E209417A07AA3A18BB499B7B,71,FEMALE,ACE Dumaguete Doctors,2024-01-04,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+2E86EF759D28995E9313368570543DAA,51,MALE,ACE Dumaguete Doctors,2024-01-04,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+CDC58AB270F94CCF7CA7513F7D184744,46,FEMALE,ACE Dumaguete Doctors,2024-01-04,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F025E9E6EDB3176EDA93BEFCB82B671B,61,FEMALE,ACE Dumaguete Doctors,2024-01-07,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+5B94A7523EE8B55B394542F0A361F17E,63,FEMALE,ACE Dumaguete Doctors,2024-01-08,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+224E8C80810CB1E3816E19A16E8F83FA,57,FEMALE,ACE Dumaguete Doctors,2024-01-08,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F0E3ECC4135BFF8DC240DCEE8CB268D6,47,FEMALE,ACE Dumaguete Doctors,2024-01-09,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+56A53E3C8344866393C4A8347425EAF0,72,FEMALE,ACE Dumaguete Doctors,2024-01-09,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+9F0CB62D237189948B013E265A5C3187,57,FEMALE,ACE Dumaguete Doctors,2024-01-09,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+1E50B63FF54D76E99D10D7DDCC11DE00,61,FEMALE,ACE Dumaguete Doctors,2024-01-09,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+65256E69165491AC5230FCBA7D2C0C97,70,MALE,ACE Dumaguete Doctors,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+975F4939F3DB0F43C99E3FEE1B355BAE,76,MALE,ACE Dumaguete Doctors,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+D2D0416A8B56DFD8406C43F6F3ED99AE,74,FEMALE,ACE Dumaguete Doctors,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+CFA1B9E9AD0349414716F49EDB995979,69,MALE,ACE Dumaguete Doctors,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+18DC31BACF4BB2A32D8A437253DD5790,54,FEMALE,ACE Dumaguete Doctors,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+14D609E138197CCF3E83E9807CA5AE02,40,FEMALE,ACE Dumaguete Doctors,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+86B0C8AA41F81E38634D451F23B3489E,43,FEMALE,ACE Dumaguete Doctors,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+CA9843AAA9D4C2BB82DEC15AA57C0657,64,FEMALE,ACE Dumaguete Doctors,2024-01-11,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+25A4287527F052EC2A0F5E9D7A68DD64,72,FEMALE,ACE Dumaguete Doctors,2024-01-11,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+3E9AB191EAE59C3DEF761545324A7A05,81,MALE,ACE Dumaguete Doctors,2024-01-11,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+90A45DC9DC1E59A2E148C09A9DD3E65A,83,FEMALE,ACE Dumaguete Doctors,2024-01-18,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F2185C8A1D31AAA72F3D512DA3B0F009,72,FEMALE,ACE Dumaguete Doctors,2024-01-18,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+2B09EE3BBD8A7232D3B0076B6B80D162,75,FEMALE,ACE Dumaguete Doctors,2024-01-18,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+559823ABBBB8CAE2B0EAD14D91D25FB1,54,FEMALE,ACE Dumaguete Doctors,2024-01-18,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+6DA3CC66D04BC5C65EC39A581910F194,51,FEMALE,ACE Dumaguete Doctors,2024-01-18,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F85119CF2B0B31E71AD38AA14D82823D,52,MALE,ACE Dumaguete Doctors,2024-01-18,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+CAC8A586DA186796DF4EA8E6D222F024,57,FEMALE,ACE Dumaguete Doctors,2024-01-18,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+987F63ACBEB631C4FB32F0941392116F,8,FEMALE,ACE Dumaguete Doctors,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+984A62D3B0E5AC8ABC78DFA0A70ECB80,29,FEMALE,ACE Dumaguete Doctors,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F672E8BCBF16EA92731B1739B0A7484F,33,MALE,ACE Dumaguete Doctors,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+4C16AA77F4B3D9A5518CBC87E22271CE,58,FEMALE,ACE Dumaguete Doctors,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+A47D97D3312232A2761B76AC915B134D,64,FEMALE,ACE Dumaguete Doctors,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+4240D54C83B6F49947343EB78DEFFF53,43,FEMALE,ACE Dumaguete Doctors,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+A022AE95860B780ADA48962A56E7D055,66,FEMALE,ACE Dumaguete Doctors,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+0C5CE83F0EDEC06C08465D714687FFF9,75,FEMALE,ACE Dumaguete Doctors,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+C376BEA8C650A5AA24C5B309A6F7F898,72,FEMALE,ACE Dumaguete Doctors,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+392EC3AE0495C1F7E50FE2E0A29FB64A,72,FEMALE,ACE Dumaguete Doctors,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+93723DF614FADA09B49321870E028CD2,85,MALE,ACE Dumaguete Doctors,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+B9AC86610A022F202A33E83E5B70665D,61,FEMALE,ACE Dumaguete Doctors,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+75C862D2FF3685227B98EEB24D5D42E7,20,FEMALE,ACE Dumaguete Doctors,2024-01-23,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+1B00F6A0274018446D42EA20E8675DBF,67,FEMALE,ACE Dumaguete Doctors,2024-01-23,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+900D5A30D30D5BA5169A58ABD22017A7,46,FEMALE,Holy Child Hospital,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+44F76671DC4BD4577FA821D81A7E1897,64,FEMALE,Holy Child Hospital,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+4920BCA2E0FC9BA3CDF24D5543D91CE3,53,FEMALE,Holy Child Hospital,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+67854387A3EF7D86A1F56F38CDDA500D,12,FEMALE,Holy Child Hospital,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+04F159DD4F8F58B2D6D79FB0ABEB6EFF,85,MALE,Holy Child Hospital,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+19EA397669C4B0B694FC16A8A6E1682A,37,MALE,Holy Child Hospital,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+497B32297E2FD557BCE213286C343DCC,70,FEMALE,Holy Child Hospital,2024-01-02,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+A5FB86D79344C5EA33173D2657839C0A,53,FEMALE,Holy Child Hospital,2024-01-03,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+83616A0E3AAB5C2C90AC6CC56DD6D339,12,FEMALE,Holy Child Hospital,2024-01-03,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F49C06AF48D70B1C160B574E55954AD5,68,FEMALE,Holy Child Hospital,2024-01-03,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+235E8637A0AC7D51268769142329FFE6,79,MALE,Holy Child Hospital,2024-01-03,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F82FE53DE7467B9584155882381B46E0,70,MALE,Holy Child Hospital,2024-01-05,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+2D4D328114DFD2E2507C98D37A969E4F,22,FEMALE,Holy Child Hospital,2024-01-05,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+92AA50D263079AF05CB84187F627542D,64,FEMALE,Holy Child Hospital,2024-01-07,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+5F243F9059171B1B181D7ECC3922BCA8,65,FEMALE,Holy Child Hospital,2024-01-07,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+897BFB412AF1AEA5554201D1D9F1EB70,59,FEMALE,Holy Child Hospital,2024-01-07,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+1311741FAA05272FC04D2FC2E1673D59,32,FEMALE,Holy Child Hospital,2024-01-07,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+A4F363D307B7724D0470A4881701D117,70,FEMALE,Holy Child Hospital,2024-01-07,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F72B5607C32460474973ACEB3DEE3940,72,FEMALE,Holy Child Hospital,2024-01-08,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F4021E779A2DB1C9783752940A93AC08,57,FEMALE,Holy Child Hospital,2024-01-08,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+95FFC74FA7DBD22786B1DFEA5613B454,55,FEMALE,Holy Child Hospital,2024-01-08,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+DCBF148D56E468D3497799A4CC531E5A,53,FEMALE,Holy Child Hospital,2024-01-08,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+E0DFD75D0E3644BF87AC277592DD5C24,66,MALE,Holy Child Hospital,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+96D213E240C922E2A51521D20B5BD6CF,85,MALE,Holy Child Hospital,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+D04C085F2BD7F65888302C4C7B6C7D42,44,FEMALE,Holy Child Hospital,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+7E24C229749A5813DD98EB32A6A4DED7,8,MALE,Holy Child Hospital,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+07C5BD4D435589AE8714E275B2D55E9B,79,FEMALE,Holy Child Hospital,2024-01-10,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+FE1C519D7E8102076B418F443BFBC5F4,74,FEMALE,Holy Child Hospital,2024-01-16,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F70FC9AC218A6A6573B73909BE96ADD6,70,MALE,Holy Child Hospital,2024-01-16,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+A94F1B2F681EAF3EE57B96AFA91DC115,75,FEMALE,Holy Child Hospital,2024-01-17,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+CEF128F3AE82CBD65C7A1E837E4735E5,54,FEMALE,Holy Child Hospital,2024-01-17,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+4E2CE99EF88D8D6D17E945BDE5F48B97,29,FEMALE,Holy Child Hospital,2024-01-17,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+D09EC139912426AD65F95EBB464CF393,52,MALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+76D696B3F3BB9FF70011B0954C14B163,65,FEMALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+4AE38775706433F53F55ECEE11A5FF9E,33,MALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+E1FF92E209D9717FAA845C9AE01E4A20,85,MALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+EF29E14DC857C4AEBE38F5B7E80BED12,46,FEMALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+8A2E342CA23C19BAC7149F3E58D5EF09,27,FEMALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+86F7C61FA0178A52941FFE2147E7B72F,24,MALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+0DE873386F6AD5A9B87BF261D1A929D9,66,FEMALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+EF14A48A59B3FD49CD059A06F52A0BEE,61,FEMALE,Holy Child Hospital,2024-01-19,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F4EAE52DD9D3DD851875992527DAE7A0,41,FEMALE,Holy Child Hospital,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+219BF05081FB1FB1522A86289B415686,83,MALE,Holy Child Hospital,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+C3894FD28485610FD7DCC22298391DB4,74,FEMALE,Holy Child Hospital,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+AA91E185BC5A950C7133151E9E609D2B,42,FEMALE,Holy Child Hospital,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+34739AF5D8E90DF852C86730569BF6EA,68,MALE,Holy Child Hospital,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+10D769A8E837FC3931EB475F5AEE9C3E,76,MALE,Holy Child Hospital,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+A7CC632A1918ADDD9A5524FB6DDB935B,27,FEMALE,Holy Child Hospital,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+F2DAA58FDF53E1D38E0CB205EB0E31FF,73,FEMALE,Holy Child Hospital,2024-01-21,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+BFEB9CFE0A221A5A6267F44B661CFEC2,88,FEMALE,Holy Child Hospital,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+338BA7086269EB89FE196703BD1BAC68,57,FEMALE,Holy Child Hospital,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+AFE87F1925BFD698EC16B8DD04ACC2DB,59,FEMALE,Holy Child Hospital,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+0B9B6E681490081610DA886AFE909D07,23,MALE,Holy Child Hospital,2024-01-22,Dumaguete City,Negros Oriental,Central Visayas (VII),family medicine
+E06A13C09F5505735956B8A5A007BA3E,11,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+20E8BE92DC1893A3516D108857796BD9,10,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E019C7C599AEDE2B7F78411B5AC9684E,9,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E384D5F920F7CBB3707085B6480FC250,17,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2CB17F102F464FEB67B8D5D9A1F80107,9,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3F2BE02F5040226A47D037489C19E595,12,FEMALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+57277EFCD8F356A13897687C4819D19C,8,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+CAF8CE204B986750B28413AAD23836C3,7,FEMALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+1E7D710D813CD389C889CCEE15C73699,7,FEMALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E720EE81ADA305DFDE49F1D7C29086C6,7,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+BC4E60F53F955E87C879FAB48590448A,6,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3850B7DEA4C051B6CC4085E98E653A55,5,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7EB1C95D603559C3A77D7B63BC61A4C9,5,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5ED4B06BA6888A7E778A6D2374A856A1,5,FEMALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+FE5928BBB78D2CFDDDE58DF65F72E046,6,FEMALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+72BA8EA33BC557C144986B17A4F38C5B,4,FEMALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+62664B28E7BDB0890D99F5E2286E62BF,4,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+708B6C5CAF03892C6D59B66C32A64D00,4,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+A162C670F49EADB637DC462060D1F594,16,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+4B1A06B6D6AE7A1FAC53DA8D91E55205,12,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+03C533B9B7008D5CC6D92B232889B524,11,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+4D136DAA8FFEA120EBCD3AE835AA4976,11,MALE,St. Elizabeth Hospital,2024-01-01,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+D0DAF76EE05517768FC26C20B8FE22BC,10,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5AEFCDB60F7C8B3DD709F8AD6189176B,11,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+513C377F4DCAD4ED9F3FD0ED4ED679D7,9,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+357B27BCC32356DAE35FBD4022933E59,9,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+20C66599F4A1C1839C0966403059D5BF,11,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+AE0EADFD010CE49D3003967BD984B005,19,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+9C63A8175EAF9627288234E6AFB7A204,9,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+6B21C423BE60AAFEAC3DA43A8F867D00,17,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+74234714AA4B8F61B2923127D6E0B09F,8,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5381FD1DEFF4779AB719C8925A8D79B4,7,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+40CF11CE11FF3235874F3F6D73C017B1,6,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7E0A23773BB1D07CFC6C8419F980D6EA,6,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3E1373E2E29F95B6732F46C760540C8A,5,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+03A622EB2A4A8F551E9AC5FB53A203B5,20,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3BAC2BB5519E94BD5DBF349C1B60744C,5,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+BEBF43B416A0D2B11AD81B2E580D76E0,17,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+AA43BA65850436DD0E22B784B13C7C6F,13,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5F36EEDD26BED4C792ECBF5DABDDF6FB,13,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8906B616909E80383BC41D53D4212F7C,12,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+CE15AC78D4BBD008E9E654106A8908F8,11,MALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+338B1810108BB953C2B876083CFEFC5E,16,FEMALE,St. Elizabeth Hospital,2024-01-03,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E4337F0FB1C6707F17E47277A521C62B,10,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+14CF33C9B23E66D954F08F9677A23EB3,19,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+02334857593E9DDC2828135D559FC838,21,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+1C40AFDB031BF986287A5BAB3F017989,9,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+334D42557042DCBB8590648DADECE04D,9,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E4A8D46EC3350980CAE8B5C09EE24E98,8,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+4A9F759A10637421528B35CD0ED3F5CC,7,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8B86BAF524FC5C0098030F4E8F774E8D,7,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5C330CF927BC7360E195C18D775F89D0,6,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7BF491EF5476B1EBA2AA5EA9EEE45A49,6,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+55E000167EAA38A5AC2FBB54BDADB662,6,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+9C98CF8573F0F69DDB1B1186AB59C50B,6,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+318992F851822228DA3B03E577A3FA42,5,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+AC56F196F5051C7E7668141443BDF2FC,5,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+D70810D3CC19B519EADAD9EEF97FA0DD,5,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E2B3F93BF855D7BADE693086552ECA3A,4,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3CF1EA7490EB6336753D1BD5CBB3E50B,4,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E2BB77805E938F0972FFD98631832813,4,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+EBA544EDD7993449E1A6F29798696BB4,4,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5EAC31D81B20BA2C6F084417485F7427,15,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+183AAD13970903BC97B3C2B76D0841DC,12,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+C895D27A40701A974F89D15102D1E6D3,15,FEMALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B42F70A0E15F021E3908E0D7B0EF5633,12,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0CD49D8E3ED96C0879378F997E713F92,17,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+CD5A35A032E46743B832E497F2F5F8BF,11,MALE,St. Elizabeth Hospital,2024-01-04,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+F07291DD50B6372F3251BB0B4636EADB,10,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0B24EF2E3B0B4F603DBFD556E60C624D,9,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+473E84BEBA402696C7C90D7EAB08CEF9,8,MALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+AA28D3B08A636AC61F305A8A1BEE1A87,9,MALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+97C9C70ACE3902827F8B4FC3910FE64F,7,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+05F1CB870E8A5A132FF74E565E07DFBF,7,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2E84AD94D2E8C4113FC6959C3F3AB659,6,MALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+51BE88034B8369ACB0E4E0799889E853,8,MALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+BA6B6CB490534788F46C816CE72CCBE7,5,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+88F17C3C9E052033E9F5D1552D9C379D,5,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+30CE2233F8B429AA2CCA6059B5FF530A,4,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+6441D020AE00CADC4ED01996A2F7ABDA,15,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+6002D0CB09998BC577E22D8FA6C263AD,15,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+1D99411F086A820C6659B6DDBDB17001,15,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+447B10E0E1CE7D72B3DD8BA8A5D803D9,12,FEMALE,St. Elizabeth Hospital,2024-01-05,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+638023D2DA81A2BB296A7765FB622814,10,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+15FBBED79724EF51AA3A657C5554A97F,11,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+FD5A1BF76298B7EB78EE9A31878104D7,67,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+369997538A0DCCA0BA1C27440EB0894C,9,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+6950A2C4E5C55C59DD8662E15FD722DE,16,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2225843191424476486560B3E95799C6,9,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+1E92717E7A547C7912242916B38C93D1,13,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8AB2C3A745CEE431FE4D1242E050F8D3,8,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0B0E5867BA23E0A4D7B5F534D612CBEB,7,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+BB53C164F28306FF251FA4FBF31074CA,12,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5940C8D4A876C99A4F65CB377D28B3EF,6,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7236E853A539FBFC6E1AB4537F5F6292,12,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+4B730D2D787F93F83A9804B5BBC72B4A,6,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+6767F7E71A51A16236F8113BC9CEF0A7,8,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7BC1A1A2373149E7246EB1453615E469,5,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+365551B7A793BEE22A3D0DC6CD71A7C5,5,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+F2CD88FFAC95E8886CBDB946763B3262,5,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0971244A81C0D1AF8E348DF8D0EE489D,6,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3E9CC43BA9BB570BEC6700A5E7E1CA89,4,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+A309CCC4A5C584CCD0258C4D63C5C8B8,15,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+D4662C2DDF8B8DF196FC2CAC022FD495,26,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+D4B28A31682440E90E8F203486A0E7F7,15,FEMALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+A1FFA59D631C46CA2ACCD42E927F6F37,15,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+69FDAFDD3DD81014E1DE2E80C5F40B4F,12,MALE,St. Elizabeth Hospital,2024-01-07,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+133D9B5DDE9B0D40E5A333B5F8E04AF1,10,MALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+54C856D09F72072A4F3E71E3B644A02A,46,FEMALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+15B282E6D7F3E191BA512A55B39A4D35,14,FEMALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+C8300344376A4B3D9B917057DD037816,16,FEMALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+47C5AC85A977CBF119240A3E64F0E2DF,8,MALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B446665801E61A7C372A10F3F1313DED,6,MALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B31A81D1A507021120FADAE6B48B6216,5,FEMALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+DBA099C01BD6017881F1C137249181BD,11,FEMALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3800C7B89E3278D3F8BA9DD2AE844A03,4,MALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+CC219EBA4DDE4FAB4BFCA4F43625DA33,4,FEMALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+4A363AD4164B883A0CB39656C5D2A392,14,MALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+CEDA2E56D19459E29355CA1AC0F8F6CA,18,FEMALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+593B420FE0564F8B25F6EC021282601B,12,FEMALE,St. Elizabeth Hospital,2024-01-08,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0D20087528163D139C5E6732CBBEAA39,16,FEMALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3D1EA8D53202DD5FF3FAA2C3C5A62A5F,8,FEMALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5E8D6DB7AE65E4F5687B54060310208C,19,FEMALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3E6EFA3C21BA0FEEA90F60FBCE020724,9,FEMALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+59C8407E931FF6AA56D76B6EA3F3D613,6,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5451D5C1A9954C8E20AEB3F99D8E1D59,6,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+305A3D35D2B191316EB94969A0904E5A,5,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+4ECB2E5BE5A220B50BA499D537C7BE37,15,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7B11604BCD0A51F7AD3E9133F10367EE,8,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8A238A458E9BB0E3F0F6C0874B2FA1F3,4,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+6318C53DE1AAFA18F748F29D3E3CC9AC,15,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2873E6190374FEC468A284C7F954AB5F,13,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+44716711A8996BA9321CF3AD1F0C621B,19,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5E6E71892C2827318C585F4EB09E1FC7,14,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E0F794C61C4F2C8307972C6820B4A766,12,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+4C6DF94F7D6102E1298F6C07F09A8523,11,MALE,St. Elizabeth Hospital,2024-01-10,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3FC2432B24F288B57E2FBAD8FBCC367A,10,MALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+ACF2694C9A23A5E9A6BE2F9490DD6625,14,MALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+FAD69C34B6BC4C2EF15268E1D5DF07CB,11,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+94327A20790B023E31897E3FD9C7C08D,19,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+A4A1FC595DC7EC20AE528BC073140D5E,8,MALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+421D646B414E23202CB8AC3136C61D8D,7,MALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+40B483D8AF7CC9F654E30C86AC1B7EDD,7,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+DF12378F9598F07F52CB2881ADB0AD6A,7,MALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8CABCBBFA834C0AC5E7F95A54F39FB06,10,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+1E32267414368B971C804FBBD38E298A,6,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7A857611FD51F79A41F39AC7F54C88B7,8,MALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E500B9C628A9CF5826DE2445D1E63031,5,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+A39133A386A9A00314AEF4A0A3829D8A,5,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+EA7D7C143E9F38C48328D6018748019C,4,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+215CE911337D4B4543896AEDBD959CEB,4,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+9E6C5B0CDDFD0A27D6C3B225790605BF,12,FEMALE,St. Elizabeth Hospital,2024-01-11,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2C8750702C26F017489417AC158C8371,10,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7F6D74E89632BA3E455AE82DEDC53703,17,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+01AEEFA76DD2297E56983F6B23965407,9,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+784247D4E6375C7FFAA1C4DDF71AB0DD,9,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+DA8CB2446A6DA8D5900A35E24F99E645,8,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5EFFADE006B21E206A39AB3E11B18981,7,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+154A15E75740C2BD2071DA8564AF7DC6,7,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3387A771D4A99ED993C488C17BFBFEA4,6,FEMALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8DCFAAE044369D74897815FB87C710D6,12,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5717E210F6525549BD7079C8B673FB4A,8,FEMALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+CFD2999D661A5BA27D035F58112968D5,5,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+CB5D6E94BF2DFC11D83C05EE25434CB1,4,FEMALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2AB1C552ED74B3F5796CA470E898982F,20,FEMALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7F82117125D007A30E33B447CCE3A3FC,16,FEMALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+82FBF8FFAD6CEE4E4E2B4C1DCDCE2825,14,FEMALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+FB51E922577C82541F6DE4E80E43A898,13,MALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+07561E15B87FC2E30C724F6ADC47DCB7,15,FEMALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+9BE1F95D24DC89DBCDF139EBD45B9DA0,14,FEMALE,St. Elizabeth Hospital,2024-01-12,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+603A29996DBBE353A93CC48B631C5757,10,MALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+226A3F694B5F8FCD881DD77BB4DD8C01,9,MALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+AFE9B7971812A9E0E68B9B439D5BD3A9,15,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7E00561C83A958A03239AEFA3AA14F50,16,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+24FBD110433D75B633DE9598358CD350,10,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+01444591C5AC2AC856065A498654EC8E,9,MALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2BEAC6640E6E189D4A2D22D6E00D7264,6,MALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+A0817B6245CE224C2C54C87019315824,5,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+A402DB4433857448A963472F75D66C1F,5,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+338FA3D7EFE91F6DE36DF7E72E794B02,5,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E4BB073799809F85A0F711A47C98D646,5,MALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+78CA7BEF015229601C24BB6AA3AB0B63,4,MALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+4D54FC7F304AD7AEE7BD60FA82A7A0DF,4,MALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+36FEBE5309EC9D1D2CD68C264A2010E5,4,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+6E851A343FD4E3B4326BB27D2B6ECA40,17,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+66F5CB5B4815D9E35356AE906803039D,12,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+BF2AF279F96DBB42A24FAB019F9917CF,12,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3724D6E374CCBB5163C75AD54C69585D,14,FEMALE,St. Elizabeth Hospital,2024-01-14,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+762724B85BB3862B0FCDA0968F65D598,11,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+783FB79D4E74BB1B4DBB3BF676C26BD2,10,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+705B28DAC26288F89F386883ACF8F7E1,14,MALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+918DE1BBCDCEB896D45D17AE8040B0C7,18,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E82E6A9E8DD2F6F67DB69DB6E686D7A2,9,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2FCFA48BC1420F49D3370AEFE89575A3,8,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+93173CC9E3FD654E3E4D9BA77AA8AD87,9,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+12559DB622EBCE1D501AB3A2979CE5C9,8,MALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+49C8FCAFD65C1A2388BDF87ED75B4BD3,8,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+9769713FC145C0873AA3404FECB1433B,7,MALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+915A0B368DBE36BB9053E54B568CB91E,10,MALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+71B069894DBB962D39E4353C80D1BC21,6,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+001568012EAB32BCA89DDD3DB1F0720D,7,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+91331B4E6609E19F67D850C618462ED3,5,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+069D4FADF3E08FE5294DFB85133BD96F,5,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+73F15EB900D2BA24D41C58F466258CF1,5,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8F4D6FEAD9A6E72C5FB9F6D6E278138E,4,MALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8CFDDC1CB77D7CEC4063F707EAE5A912,10,MALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+768A54C32A3ABB96B0F2BCB964BBE0EF,12,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0732A537E9C6551E0D75F28576C0ACE6,12,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B865896656237D09E3958871D9F4C090,11,FEMALE,St. Elizabeth Hospital,2024-01-15,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+68779709D3BEA10F031C485060A5FEA7,10,MALE,St. Elizabeth Hospital,2024-01-17,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+2989C7EB85CD42ECB6344671768DD76B,9,MALE,St. Elizabeth Hospital,2024-01-17,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B539EA60CCB0086C9F98E449B0776D96,7,FEMALE,St. Elizabeth Hospital,2024-01-17,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+242E3896B24EBB43722169B2ADCC6BC9,6,FEMALE,St. Elizabeth Hospital,2024-01-17,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0C459ECE9BFD7494CF2427F8014E8DF1,5,FEMALE,St. Elizabeth Hospital,2024-01-17,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+FD174AAEE4475D9198B1B96B52A57325,6,MALE,St. Elizabeth Hospital,2024-01-17,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+AC3525EE68CA5A6B96FF1C0368671675,20,FEMALE,St. Elizabeth Hospital,2024-01-17,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+48317BC4214DE302276067300E09084A,9,FEMALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+02F38402C7CE53FB124EC0F3F6C8B551,9,FEMALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+C76ECDD6E7C66752E72D3F610C50C45D,8,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+AE0478C81913251469D69C915CC30AAB,8,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+837E5856757D59B6B60D72A4268C6693,12,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B71C7801AAE5FF612E2716C8BD5C1396,6,FEMALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+7DEDF16C62DD64407DF874DE24914FD6,6,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0F5A077ED83DA6A5CEE0D61F28ADE7FC,6,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B96BB6AF605E0A523F4A0CEA0C39579A,6,FEMALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E427CC69FD98790B19F7D785BE9F10F8,8,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+64E6D01FEB93B27F11B9B51AABB4D398,4,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+23EFE36A95C60648994DBF30E2436B7C,16,FEMALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+06943A8328866831665F0A099567BC9A,17,FEMALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B5DCA1161A2AAAADF569931ACB449E50,12,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3CD72EB959DEC5790F412F58AB9CD57A,11,MALE,St. Elizabeth Hospital,2024-01-18,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+92B099BE71AAB7221F6B260AE2A8D2F9,11,FEMALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+FDDD5AF7689750508DA9B07133863E97,16,FEMALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E1D08EF1433E5B52F6E0779F8601B59A,8,MALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+63CBF5F0D7066393313F3630E5763F3B,16,FEMALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+F319DD6E899C2C420BB1C30554F6FC4B,8,FEMALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+594135E9C918CE6F81F82619759DD01C,7,MALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+73CA28EACFE53B82957C570E9BE50B30,7,MALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+F4EC6C8D7E83233C768EA07A4E4632EF,5,MALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0B55A5ED3145191E43344A0C99E78DC6,4,MALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+77A4D4F9A6A39B23345521B4BEC7C260,10,MALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0AD3906DBEE02E8E2F3C2B5A160E0A5E,13,FEMALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0E875BB97C203478E7BE3F201611883A,12,MALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+D0742AC40BF82EDDBEBD7C7C04401116,12,FEMALE,St. Elizabeth Hospital,2024-01-19,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8BB408944916E7247650A14354E2B5A6,10,FEMALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+32DCF38153F0B22D01DBF1554C09637A,8,FEMALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E779BCDA632FB5B9B576DF4D9FAF5D80,7,MALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+549AB4791087B72FE01D36CE8C69EBB2,6,MALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+3642341B9D3B421CCD8BEC21233A8493,6,MALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+C6A92434CDAE9F57F1EDC7BA48388F59,6,FEMALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+11456E2B81CDE55FB61A4C92998B0B77,6,FEMALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+931965500AE40206A55306B5237F9F07,8,MALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+313802E3B0D8157C0E41249E4F286EC3,5,FEMALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+6783DA41C147F56635D1D052D1342A09,4,MALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0108EEBA9184D1F8BD6334A243EB3CD1,17,MALE,St. Elizabeth Hospital,2024-01-21,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+47423FF5E84FD01106D5350DF1FB9A68,12,FEMALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+84474B56948ED3C05A7A7200ED81C555,9,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0EEDD1DAA7CBD4611B04FB6A1F267FCB,14,FEMALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8C06EA181E94411C23374ABCA00D1C3A,9,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+ED0222AC2AFDE0A936F51E030E734E3F,8,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+CF65111204D0AE5BA48F240D2B2BE5A3,7,FEMALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+B14227887A926FA09B48F7543EDB4559,6,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+C5B478ED0B4EFD15F8F60C8190616F0D,7,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+13A070E13DEB0290BB277720D2C2D83E,6,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E471E26703CF4A9986FBFB58232946EF,6,FEMALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+BF8B459E0D02A9E01573BEEBFCA5C3F0,5,FEMALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+17CAF0E7A09965AD723794A4DB522962,6,FEMALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+0C6B127F89C961F3D862F0FAC1A3AC8A,4,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+5A85345CE438C089FEFCA94CBFE537E1,14,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+8FDC22B3947326DD2C88FC822E7E4F8D,19,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+816BD70A3C9B6EE2D032B7A696218757,12,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+68C2A0F88F2796B890450A71BA575BE7,11,MALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+F3859E0EDF98C85E4F462262294FF78F,15,FEMALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics
+E211AFC4B58D2A0344EE084F317E2014,10,FEMALE,St. Elizabeth Hospital,2024-01-22,General Santos City,South Cotabato,SOCCSKSARGEN (Cotabato Region) (XII),pediatrics

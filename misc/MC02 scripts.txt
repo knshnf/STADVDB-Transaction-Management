@@ -1,0 +1,38 @@
+Install MySQL Server:
+sudo apt install mysql-server
+
+Comment out bind address
+nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+Create new user:
+CREATE USER 'user'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' WITH GRANT OPTION;
+
+Port forwarding:
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3306 # Add
+sudo iptables -t nat -D PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3306 # Remove
+
+Utils:
+SELECT user FROM mysql. user;
+sudo systemctl restart mysql
+
+Create a database schema - run in VM
+-- Create the database
+CREATE DATABASE IF NOT EXISTS central_node;
+
+-- Switch to the newly created database
+USE central_node;
+
+-- Create the Appointments table
+CREATE TABLE Appointments (
+    appt_id VARCHAR(50),
+    age INT,
+    gender VARCHAR(10),
+    hospital_name VARCHAR(100),
+    queue_date DATE,
+    city VARCHAR(50),
+    province VARCHAR(50),
+    region_name VARCHAR(100),
+    main_specialty VARCHAR(100)
+);
+
