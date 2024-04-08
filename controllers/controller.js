@@ -48,6 +48,13 @@ const controller = {
         var sql = "INSERT INTO appointments (appt_id, age, gender, hospital_name, queue_date, city, province, region_name, main_specialty) VALUES ('" + appointmentId + "', '" + patientAge + "', '" + patientGender + "', '" + hospitalName + "', '" + queueDate + "', '" + city + "', '" + province + "', '" + regionName + "', '" + mainSpecialty + "')";
         db.execute_query(sql);
     },
+
+    postDelete: function(req, res) {
+        var appointmentId = req.body.appointmentId;
+
+        var sql = "DELETE FROM appointments WHERE appt_id = '" + appointmentId + "'";
+        db.execute_query(sql);
+    },
 };
 
 
