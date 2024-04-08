@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/', routes);
 hbs.registerPartials(__dirname + '/views/partials');
-
+hbs.registerHelper('eq', (a, b) => a == b)
 dotenv.config();
 port = process.env.PORT;
 hostname = process.env.HOSTNAME;

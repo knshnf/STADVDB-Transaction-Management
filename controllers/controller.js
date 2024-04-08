@@ -67,6 +67,46 @@ const controller = {
         var sql = "DELETE FROM appointments WHERE appt_id = '" + appointmentId + "'";
         db.execute_query(sql);
     },
+
+    getUpdateForm: function(req, res) {
+        var appointmentId = req.params.id;
+
+        var sql = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
+        db.execute_query(sql, function(err, appointment) {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Error fetching appointment data');
+                return;
+            }
+            console.log(appointment);
+            appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
+            res.render('updateForm', { appointment: appointment[0] });
+        });
+    },
+
+    postUpdate: function(req, res) {
+        var appointmentId = req.body.appointmentId;
+        var patientAge = req.body.patientAge;
+        var patientGender = req.body.patientGender;
+        var hospitalName = req.body.hospitalName;
+        var queueDate = req.body.queueDate;
+        var city = req.body.city;
+        var province = req.body.province;
+        var regionName = req.body.regionName;
+        var mainSpecialty = req.body.mainSpecialty;
+
+        var sql = "UPDATE appointments SET age = '" + patientAge + "', gender = '" + patientGender + "', hospital_name = '" + hospitalName + "', queue_date = '" + queueDate + "', city = '" + city + "', province = '" + province + "', region_name = '" + regionName + "', main_specialty = '" + mainSpecialty + "' WHERE appt_id = '" + appointmentId + "'";
+
+        db.execute_query(sql, function(err, result) {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Error updating appointment');
+                return;
+            }
+            res.status(200).send('Appointment updated successfully');
+        });
+    }
+
 };
 
 

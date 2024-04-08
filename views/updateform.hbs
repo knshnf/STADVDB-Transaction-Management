@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update appointment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript" src="../js/updateform.js"></script>
+    <div class="flex flex-col items-center gap-6">
+        <h1 class="mt-5 text-lg">Update appointment {{appointment.appt_id}}</h1>
+        <div class="flex flex-col gap-4">
+            <input type="text" id="appointment-id" name="appointment-id" placeholder="Appintment ID"
+                class="border border-gray-400 p-2 rounded" value="{{appointment.appt_id}}" hidden disabled>
+            <input type="number" id="patient-age" name="patient-age" placeholder="Patient Age"
+                class="border border-gray-400 p-2 rounded" min="0" value="{{appointment.age}}">
+            <select id="patient-gender" name="patient-gender" class="border border-gray-400 p-2 rounded">
+                <option value="" disabled>Select Patient Gender</option>
+                <option value="MALE" {{#if (eq appointment.gender 'MALE' )}}selected{{/if}}>Male</option>
+                <option value="FEMALE" {{#if (eq appointment.gender 'FEMALE' )}}selected{{/if}}>Female</option>
+                <option value="OTHER" {{#if (eq appointment.gender 'OTHER' )}}selected{{/if}}>Other</option>
+            </select>
+
+            <input type="text" id="hospital-name" name="hospital-name" placeholder="Hospital Name"
+                class="border border-gray-400 p-2 rounded" value="{{appointment.hospital_name}}">
+            <input type="date" id="queue-date" name="queue-date" placeholder="Queue Date"
+                class="border border-gray-400 p-2 rounded" value="{{appointment.queue_date}}">
+            <input type="text" id="city" name="city" placeholder="City" class="border border-gray-400 p-2 rounded"
+                value="{{appointment.city}}">
+            <input type="text" id="province" name="province" placeholder="Province"
+                class="border border-gray-400 p-2 rounded" value="{{appointment.province}}">
+            <input type="text" id="region-name" name="region-name" placeholder="Region Name"
+                class="border border-gray-400 p-2 rounded" value="{{appointment.region_name}}">
+            <input type="text" id="main-specialty" name="main-specialty" placeholder="Main Specialty"
+                class="border border-gray-400 p-2 rounded" value="{{appointment.main_specialty}}">
+            <button id="update-appointment" type="submit"
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Update</button>
+        </div>
+    </div>
+</body>
+
+</html>
