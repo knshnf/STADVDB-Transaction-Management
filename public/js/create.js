@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $('#create-appointment').click(function() {
-        console.log('Create appointment button clicked');
         const patientAge = $('#patient-age').val();
         const patientGender = $('#patient-gender').val();
         const hospitalName = $('#hospital-name').val();

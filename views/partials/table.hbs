@@ -1,0 +1,48 @@
+<table class="min-w-10 divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+        <tr>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Appointment ID
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Age
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Gender
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Hospital Name
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Queue Date
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                City
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Province
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Region Name
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Main Specialty
+            </th>
+        </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+        {{#each appointments}}
+        <tr>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.appt_id}}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.age}}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.gender}}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.hospital_name}}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.queue_date}}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.city}}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.province}}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.region_name}}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{this.main_specialty}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

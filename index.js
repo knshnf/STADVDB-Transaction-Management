@@ -13,6 +13,7 @@ app.use(express.static('files'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/', routes);
+hbs.registerPartials(__dirname + '/views/partials');
 
 dotenv.config();
 port = process.env.PORT;

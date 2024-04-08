@@ -24,13 +24,18 @@ const database = {
         });
     },
 
-    execute_query: function(query) {
-        con.query(query, function(err, result, fields) {
-            if (err) throw err;
-            console.log(result);
-        });
+    execute_query: function(query, callback) {
+        if (callback && typeof callback === 'function') {
+            con.query(query, function(err, result, fields) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    callback(null, result);
+                }
+            });
+        } else {
+            return con.query(query);
+        }
     }
-
-
 }
 module.exports = database;

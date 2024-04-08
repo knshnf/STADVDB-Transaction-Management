@@ -1,5 +1,6 @@
 const cuid = require('cuid');
 const db = require('../models/db.js');
+const app = require('../routes/routes.js');
 
 const controller = {
     getIndex: function(req, res) {
@@ -15,7 +16,18 @@ const controller = {
     },
 
     getView: function(req, res) {
-        res.render('view');
+        var sql = "SELECT * FROM appointments";
+        db.execute_query(sql, function(err, appointments) {
+            if (err) {
+                res.render('error');
+            } else {
+                // Format date
+                appointments.forEach(function(appointment) {
+                    appointment.queue_date = appointment.queue_date.toDateString();
+                });
+                res.render('view', { appointments: appointments });
+            }
+        });
     },
 
     getUpdate: function(req, res) {
@@ -46,6 +58,13 @@ const controller = {
         var mainSpecialty = req.body.mainSpecialty;
 
         var sql = "INSERT INTO appointments (appt_id, age, gender, hospital_name, queue_date, city, province, region_name, main_specialty) VALUES ('" + appointmentId + "', '" + patientAge + "', '" + patientGender + "', '" + hospitalName + "', '" + queueDate + "', '" + city + "', '" + province + "', '" + regionName + "', '" + mainSpecialty + "')";
+        db.execute_query(sql);
+    },
+
+    postDelete: function(req, res) {
+        var appointmentId = req.body.appointmentId;
+
+        var sql = "DELETE FROM appointments WHERE appt_id = '" + appointmentId + "'";
         db.execute_query(sql);
     },
 };

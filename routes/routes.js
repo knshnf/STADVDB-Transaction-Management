@@ -8,6 +8,7 @@ app.get('/view', controller.getView);
 app.get('/update', controller.getUpdate);
 app.get('/delete', controller.getDelete);
 app.post('/create', controller.postCreate);
+app.post('/delete', controller.postDelete);
 
 
 //Error
