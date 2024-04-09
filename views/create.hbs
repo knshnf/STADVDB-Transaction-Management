@@ -30,8 +30,19 @@
             <input type="text" id="city" name="city" placeholder="City" class="border border-gray-400 p-2 rounded">
             <input type="text" id="province" name="province" placeholder="Province"
                 class="border border-gray-400 p-2 rounded">
-            <input type="text" id="region-name" name="region-name" placeholder="Region Name"
-                class="border border-gray-400 p-2 rounded">
+            <select id="region-name" name="region-name" class="border border-gray-400 p-2 rounded">
+                <option value="" disabled selected>Select Region</option>
+                <option value="National Capital Region (NCR)">National Capital Region (NCR)</option>
+                <option value="CALABARZON (IV-A)">CALABARZON (IV-A)</option>
+                <option value="Ilocos Region (I)">Ilocos Region (I)</option>
+                <option value="Bicol Region (V)">Bicol Region (V)</option>
+                <option value="Central Luzon (III)">Central Luzon (III)</option>
+                <option value="Central Visayas (VII)">Central Visayas (VII)</option>
+                <option value="Eastern Visayas (VIII)">Eastern Visayas (VIII)</option>
+                <option value="Western Visayas (VI)">Western Visayas (VI)</option>
+                <option value="SOCCSKSARGEN (Cotabato Region) (XII)">SOCCSKSARGEN (Cotabato Region) (XII)</option>
+                <option value="Northern Mindanao (X)">Northern Mindanao (X)</option>
+            </select>
             <input type="text" id="main-specialty" name="main-specialty" placeholder="Main Specialty"
                 class="border border-gray-400 p-2 rounded">
             <button id="create-appointment" type="submit"

@@ -34,8 +34,32 @@
                 value="{{appointment.city}}">
             <input type="text" id="province" name="province" placeholder="Province"
                 class="border border-gray-400 p-2 rounded" value="{{appointment.province}}">
-            <input type="text" id="region-name" name="region-name" placeholder="Region Name"
-                class="border border-gray-400 p-2 rounded" value="{{appointment.region_name}}">
+            <select id="region-name" name="region-name" class="border border-gray-400 p-2 rounded">
+                <option value="" disabled selected>Select Region</option>
+                <option value="National Capital Region (NCR)" {{#if (eq
+                    appointment.region_name 'National Capital Region (NCR)' )}}selected{{/if}}>National Capital Region
+                    (NCR)</option>
+                <option value="CALABARZON (IV-A)" {{#if (eq appointment.region_name 'CALABARZON (IV-A)'
+                    )}}selected{{/if}}>CALABARZON (IV-A)</option>
+                <option value="Ilocos Region (I)" {{#if (eq appointment.region_name 'Ilocos Region (I)'
+                    )}}selected{{/if}}>Ilocos Region (I)</option>
+                <option value="Bicol Region (V)" {{#if (eq appointment.region_name 'Bicol Region (V)'
+                    )}}selected{{/if}}>Bicol Region (V)</option>
+                <option value="Central Luzon (III)" {{#if (eq appointment.region_name 'Central Luzon (III)'
+                    )}}selected{{/if}}>Central Luzon (III)</option>
+                <option value="Central Visayas (VII)" {{#if (eq appointment.region_name 'Central Visayas (VII)'
+                    )}}selected{{/if}}>Central Visayas (VII)</option>
+                <option value="Eastern Visayas (VIII)" {{#if (eq appointment.region_name 'Eastern Visayas (VIII)'
+                    )}}selected{{/if}}>Eastern Visayas (VIII)</option>
+                <option value="Western Visayas (VI)" {{#if (eq appointment.region_name 'Western Visayas (VI)'
+                    )}}selected{{/if}}>Western Visayas (VI)</option>
+                <option value="SOCCSKSARGEN (Cotabato Region) (XII)" {{#if (eq
+                    appointment.region_name 'SOCCSKSARGEN (Cotabato Region) (XII)' )}}selected{{/if}}>SOCCSKSARGEN
+                    (Cotabato Region) (XII)</option>
+                <option value="Northern Mindanao (X)" {{#if (eq appointment.region_name 'Northern Mindanao (X)'
+                    )}}selected{{/if}}>Northern Mindanao (X)</option>
+            </select>
+
             <input type="text" id="main-specialty" name="main-specialty" placeholder="Main Specialty"
                 class="border border-gray-400 p-2 rounded" value="{{appointment.main_specialty}}">
             <button id="update-appointment" type="submit"
