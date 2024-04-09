@@ -168,7 +168,7 @@ const controller = {
         var appointmentId = req.body.appointmentId;
 
         var sql = "DELETE FROM appointments WHERE appt_id = '" + appointmentId + "'";
-        var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql + "', 1, false)";
+        var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', 1, false)";
 
         if (deployedOn === 'CENTRAL') {
             if (db.ping_node('CENTRAL')) {
@@ -288,7 +288,7 @@ const controller = {
         var mainSpecialty = req.body.mainSpecialty;
 
         var sql = "UPDATE appointments SET age = '" + patientAge + "', gender = '" + patientGender + "', hospital_name = '" + hospitalName + "', queue_date = '" + queueDate + "', city = '" + city + "', province = '" + province + "', region_name = '" + regionName + "', main_specialty = '" + mainSpecialty + "' WHERE appt_id = '" + appointmentId + "'";
-        var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql + "', 1, false)";
+        var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', 1, false)";
 
         if (deployedOn === 'CENTRAL') {
             if (db.ping_node('CENTRAL')) {
