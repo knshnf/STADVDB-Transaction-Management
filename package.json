@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-lock": "^1.4.1",
     "body-parser": "^1.20.2",
     "cuid": "^3.0.0",
     "dotenv": "^16.4.5",

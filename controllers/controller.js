@@ -4,6 +4,12 @@ const dotenv = require('dotenv');
 const mysql = require('mysql');
 dotenv.config('../.env');
 
+const AsyncLock = require('async-lock');
+var lock = new AsyncLock();
+
+const xKey = "exclusive";
+const sKey = "shared";
+
 // CENTRAL, LUZON, VISMIN
 const deployedOn = process.env.DEPLOYED;
 
@@ -25,84 +31,97 @@ const controller = {
         res.render('create');
     },
 
-    getView: function(req, res) {
+    getView: function(req, res) { // has locks
+        
         var sql = "SELECT * FROM appointments";
 
-        if (deployedOn === 'CENTRAL') {
-            if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql, function(err, appointments) {
-                    if (err) {
-                        res.render('error');
-                    } else {
-                        // Format date
-                        appointments.forEach(function(appointment) {
-                            appointment.queue_date = appointment.queue_date.toDateString();
-                        });
-                        res.render('view', { appointments: appointments });
-                    }
-                });
-            }
-            // TODO: What if central is down?
+        console.log("[INFO] Executing getView()");
+        lock.acquire(sKey, function(done) {
+            console.log("[WARNING] Opening " + sKey + " lock for getView()...");
 
-        } else if (deployedOn === 'LUZON') {
-            if (db.ping_node('LUZON')) {
-                db.query_node('LUZON', sql, function(err, appointments) {
-                    if (err) {
-                        res.render('error');
-                    } else {
-                        // Format date
-                        appointments.forEach(function(appointment) {
-                            appointment.queue_date = appointment.queue_date.toDateString();
+            setTimeout(function(){
+                
+                if (deployedOn === 'CENTRAL') {
+                    if (db.ping_node('CENTRAL')) {
+                        db.query_node('CENTRAL', sql, function(err, appointments) {
+                            if (err) {
+                                res.render('error');
+                            } else {
+                                // Format date
+                                appointments.forEach(function(appointment) {
+                                    appointment.queue_date = appointment.queue_date.toDateString();
+                                });
+                                res.render('view', { appointments: appointments });
+                            }
                         });
-                        res.render('view', { appointments: appointments });
                     }
-                });
-            } else if (db.ping_node('CENTRAL')) {
-                var sql = `SELECT * FROM appointments WHERE region_name IN (${luzonRegionsSQL})`;
-
-                db.query_node('CENTRAL', sql, function(err, appointments) {
-                    if (err) {
-                        res.render('error');
-                    } else {
-                        // Format date
-                        appointments.forEach(function(appointment) {
-                            appointment.queue_date = appointment.queue_date.toDateString();
+                    // TODO: What if central is down?
+        
+                } else if (deployedOn === 'LUZON') {
+                    if (db.ping_node('LUZON')) {
+                        db.query_node('LUZON', sql, function(err, appointments) {
+                            if (err) {
+                                res.render('error');
+                            } else {
+                                // Format date
+                                appointments.forEach(function(appointment) {
+                                    appointment.queue_date = appointment.queue_date.toDateString();
+                                });
+                                res.render('view', { appointments: appointments });
+                            }
                         });
-                        res.render('view', { appointments: appointments });
-                    }
-                });
-            }
-
-
-        } else if (deployedOn === 'VISMIN') {
-            if (db.ping_node('VISMIN')) {
-                db.query_node('VISMIN', sql, function(err, appointments) {
-                    if (err) {
-                        res.render('error');
-                    } else {
-                        // Format date
-                        appointments.forEach(function(appointment) {
-                            appointment.queue_date = appointment.queue_date.toDateString();
+                    } else if (db.ping_node('CENTRAL')) {
+                        var sql = `SELECT * FROM appointments WHERE region_name IN (${luzonRegionsSQL})`;
+        
+                        db.query_node('CENTRAL', sql, function(err, appointments) {
+                            if (err) {
+                                res.render('error');
+                            } else {
+                                // Format date
+                                appointments.forEach(function(appointment) {
+                                    appointment.queue_date = appointment.queue_date.toDateString();
+                                });
+                                res.render('view', { appointments: appointments });
+                            }
                         });
-                        res.render('view', { appointments: appointments });
                     }
-                });
-            } else if (db.ping_node('CENTRAL')) {
-                var sql = `SELECT * FROM appointments WHERE region_name IN (${visminRegionsSQL})`;
-
-                db.query_node('CENTRAL', sql, function(err, appointments) {
-                    if (err) {
-                        res.render('error');
-                    } else {
-                        // Format date
-                        appointments.forEach(function(appointment) {
-                            appointment.queue_date = appointment.queue_date.toDateString();
+        
+        
+                } else if (deployedOn === 'VISMIN') {
+                    if (db.ping_node('VISMIN')) {
+                        db.query_node('VISMIN', sql, function(err, appointments) {
+                            if (err) {
+                                res.render('error');
+                            } else {
+                                // Format date
+                                appointments.forEach(function(appointment) {
+                                    appointment.queue_date = appointment.queue_date.toDateString();
+                                });
+                                res.render('view', { appointments: appointments });
+                            }
                         });
-                        res.render('view', { appointments: appointments });
+                    } else if (db.ping_node('CENTRAL')) {
+                        var sql = `SELECT * FROM appointments WHERE region_name IN (${visminRegionsSQL})`;
+        
+                        db.query_node('CENTRAL', sql, function(err, appointments) {
+                            if (err) {
+                                res.render('error');
+                            } else {
+                                // Format date
+                                appointments.forEach(function(appointment) {
+                                    appointment.queue_date = appointment.queue_date.toDateString();
+                                });
+                                res.render('view', { appointments: appointments });
+                            }
+                        });
                     }
-                });
-            }
-        }
+                }
+                console.log("Task getView() complete.");
+                done();
+            }, 1000)
+        }, function(err, ret) {
+            console.log("[WARNING] " + sKey + "lock released...");
+        }, {shared: true});    
     },
 
     getUpdate: function(req, res) {
@@ -121,7 +140,7 @@ const controller = {
         res.render('error', error);
     },
 
-    postCreate: function(req, res) {
+    postCreate: function(req, res) { // done
         var appointmentId = cuid();
         var patientAge = req.body.patientAge;
         var patientGender = req.body.patientGender;
@@ -135,68 +154,91 @@ const controller = {
         var sql = "INSERT INTO appointments (appt_id, age, gender, hospital_name, queue_date, city, province, region_name, main_specialty) VALUES ('" + appointmentId + "', '" + patientAge + "', '" + patientGender + "', '" + hospitalName + "', '" + queueDate + "', '" + city + "', '" + province + "', '" + regionName + "', '" + mainSpecialty + "')";
         var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', 1, false)";
 
-        if (deployedOn === 'CENTRAL') {
-            if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-            } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
-                db.query_node('LUZON', sql)
-                db.query_node('LUZON', log);
-            } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
-                db.query_node('VISMIN', sql)
-                db.query_node('VISMIN', log);
-            }
+        console.log("[INFO] Executing postCreate()");
+        lock.acquire(xKey, function(done) {
+        console.log("[WARNING] Opening " + xKey + " lock for postCreate()");
 
-        } else if (deployedOn === 'LUZON') {
-            if (db.ping_node('LUZON')) {
-                db.query_node('LUZON', sql)
-            } else if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-                db.query_node('CENTRAL', log);
+        
+        setTimeout(function() {
+            if (deployedOn === 'CENTRAL') {
+                if (db.ping_node('CENTRAL')) {
+                    db.query_node('CENTRAL', sql)
+                } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
+                    db.query_node('LUZON', sql)
+                    db.query_node('LUZON', log);
+                } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
+                    db.query_node('VISMIN', sql)
+                    db.query_node('VISMIN', log);
+                }
+    
+            } else if (deployedOn === 'LUZON') {
+                if (db.ping_node('LUZON')) {
+                    db.query_node('LUZON', sql)
+                } else if (db.ping_node('CENTRAL')) {
+                    db.query_node('CENTRAL', sql)
+                    db.query_node('CENTRAL', log);
+                }
+    
+            } else if (deployedOn === 'VISMIN') {
+                if (db.ping_node('VISMIN')) {
+                    db.query_node('VISMIN', sql)
+                } else if (db.ping_node('CENTRAL')) {
+                    db.query_node('CENTRAL', sql)
+                    db.query_node('CENTRAL', log);
+                }
             }
-
-        } else if (deployedOn === 'VISMIN') {
-            if (db.ping_node('VISMIN')) {
-                db.query_node('VISMIN', sql)
-            } else if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-                db.query_node('CENTRAL', log);
-            }
-        }
+            console.log("[INFO] postCreate() operation complete.")
+            done();
+        }, 3000)
+    }, function (err, ret) {
+        console.log("[WARNING] " + xKey + " released.");
+    }, {});
     },
 
-    postDelete: function(req, res) {
+    postDelete: function(req, res) { // has locks
         var appointmentId = req.body.appointmentId;
 
         var sql = "DELETE FROM appointments WHERE appt_id = '" + appointmentId + "'";
         var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', 1, false)";
 
-        if (deployedOn === 'CENTRAL') {
-            if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-            } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
-                db.query_node('LUZON', sql)
-                db.query_node('LUZON', log);
-            } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
-                db.query_node('VISMIN', sql)
-                db.query_node('VISMIN', log);
-            }
+        console.log("[INFO] Executing postDelete()");
+        lock.acquire(xKey, function(done) {
+        console.log("[WARNING] Opening " + xKey + " lock for postDelete()");
 
-        } else if (deployedOn === 'LUZON') {
-            if (db.ping_node('LUZON')) {
-                db.query_node('LUZON', sql)
-            } else if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-                db.query_node('CENTRAL', log);
+        setTimeout(function() {
+            if (deployedOn === 'CENTRAL') {
+                if (db.ping_node('CENTRAL')) {
+                    db.query_node('CENTRAL', sql)
+                } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
+                    db.query_node('LUZON', sql)
+                    db.query_node('LUZON', log);
+                } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
+                    db.query_node('VISMIN', sql)
+                    db.query_node('VISMIN', log);
+                }
+    
+            } else if (deployedOn === 'LUZON') {
+                if (db.ping_node('LUZON')) {
+                    db.query_node('LUZON', sql)
+                } else if (db.ping_node('CENTRAL')) {
+                    db.query_node('CENTRAL', sql)
+                    db.query_node('CENTRAL', log);
+                }
+    
+            } else if (deployedOn === 'VISMIN') {
+                if (db.ping_node('VISMIN')) {
+                    db.query_node('VISMIN', sql)
+                } else if (db.ping_node('CENTRAL')) {
+                    db.query_node('CENTRAL', sql)
+                    db.query_node('CENTRAL', log);
+                }
             }
-
-        } else if (deployedOn === 'VISMIN') {
-            if (db.ping_node('VISMIN')) {
-                db.query_node('VISMIN', sql)
-            } else if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-                db.query_node('CENTRAL', log);
-            }
-        }
+            console.log("[INFO] postDelete() operation complete.")
+            done();
+        }, 3000)
+    }, function (err, ret) {
+        console.log("[WARNING] " + xKey + " released.");
+    }, {});
     },
 
     getUpdateForm: function(req, res) {
@@ -204,79 +246,89 @@ const controller = {
 
         var sql = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
 
-        if (deployedOn === 'CENTRAL') {
-            if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql, function(err, appointment) {
-                    if (err) {
-                        console.error(err);
-                        res.status(500).send('Error fetching appointment data');
-                        return;
+        console.log("[INFO] Executing getUpdateForm()");
+        lock.acquire(sKey, function(done) {
+            console.log("[WARNING] Opening " + sKey + " lock for getUpdateForm()");
+            setTimeout(function() {
+                if (deployedOn === 'CENTRAL') {
+                    if (db.ping_node('CENTRAL')) {
+                        db.query_node('CENTRAL', sql, function(err, appointment) {
+                            if (err) {
+                                console.error(err);
+                                res.status(500).send('Error fetching appointment data');
+                                return;
+                            }
+                            console.log(appointment);
+                            appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
+                            res.render('updateForm', { appointment: appointment[0] });
+                        });
                     }
-                    console.log(appointment);
-                    appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
-                    res.render('updateForm', { appointment: appointment[0] });
-                });
-            }
-            // TODO: What if central is down?
+                    // TODO: What if central is down?
 
-        } else if (deployedOn === 'LUZON') {
-            if (db.ping_node('LUZON')) {
-                db.query_node('LUZON', sql, function(err, appointment) {
-                    if (err) {
-                        console.error(err);
-                        res.status(500).send('Error fetching appointment data');
-                        return;
+                } else if (deployedOn === 'LUZON') {
+                    if (db.ping_node('LUZON')) {
+                        db.query_node('LUZON', sql, function(err, appointment) {
+                            if (err) {
+                                console.error(err);
+                                res.status(500).send('Error fetching appointment data');
+                                return;
+                            }
+                            console.log(appointment);
+                            appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
+                            res.render('updateForm', { appointment: appointment[0] });
+                        });
+                    } else if (db.ping_node('CENTRAL')) {
+                        var sql = `SELECT * FROM appointments WHERE region_name IN (${luzonRegionsSQL})`;
+
+                        db.query_node('CENTRAL', sql, function(err, appointment) {
+                            if (err) {
+                                console.error(err);
+                                res.status(500).send('Error fetching appointment data');
+                                return;
+                            }
+                            console.log(appointment);
+                            appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
+                            res.render('updateForm', { appointment: appointment[0] });
+                        });
                     }
-                    console.log(appointment);
-                    appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
-                    res.render('updateForm', { appointment: appointment[0] });
-                });
-            } else if (db.ping_node('CENTRAL')) {
-                var sql = `SELECT * FROM appointments WHERE region_name IN (${luzonRegionsSQL})`;
 
-                db.query_node('CENTRAL', sql, function(err, appointment) {
-                    if (err) {
-                        console.error(err);
-                        res.status(500).send('Error fetching appointment data');
-                        return;
+
+                } else if (deployedOn === 'VISMIN') {
+                    if (db.ping_node('VISMIN')) {
+                        db.query_node('VISMIN', sql, function(err, appointment) {
+                            if (err) {
+                                console.error(err);
+                                res.status(500).send('Error fetching appointment data');
+                                return;
+                            }
+                            console.log(appointment);
+                            appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
+                            res.render('updateForm', { appointment: appointment[0] });
+                        });
+                    } else if (db.ping_node('CENTRAL')) {
+                        var sql = `SELECT * FROM appointments WHERE region_name IN (${visminRegionsSQL})`;
+
+                        db.query_node('CENTRAL', sql, function(err, appointment) {
+                            if (err) {
+                                console.error(err);
+                                res.status(500).send('Error fetching appointment data');
+                                return;
+                            }
+                            console.log(appointment);
+                            appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
+                            res.render('updateForm', { appointment: appointment[0] });
+                        });
                     }
-                    console.log(appointment);
-                    appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
-                    res.render('updateForm', { appointment: appointment[0] });
-                });
-            }
+                }
+                console.log("[INFO] postUpdate() operation complete.")
+                done();
+            }, 3000)
+        }, function(err, ret) {
+            console.log("[WARNING] " + sKey + " released.");
+        }, {shared:true});
+},
 
-
-        } else if (deployedOn === 'VISMIN') {
-            if (db.ping_node('VISMIN')) {
-                db.query_node('VISMIN', sql, function(err, appointment) {
-                    if (err) {
-                        console.error(err);
-                        res.status(500).send('Error fetching appointment data');
-                        return;
-                    }
-                    console.log(appointment);
-                    appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
-                    res.render('updateForm', { appointment: appointment[0] });
-                });
-            } else if (db.ping_node('CENTRAL')) {
-                var sql = `SELECT * FROM appointments WHERE region_name IN (${visminRegionsSQL})`;
-
-                db.query_node('CENTRAL', sql, function(err, appointment) {
-                    if (err) {
-                        console.error(err);
-                        res.status(500).send('Error fetching appointment data');
-                        return;
-                    }
-                    console.log(appointment);
-                    appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
-                    res.render('updateForm', { appointment: appointment[0] });
-                });
-            }
-        }
-    },
-
-    postUpdate: function(req, res) {
+    postUpdate: function(req, res) { // locks done
         var appointmentId = req.body.appointmentId;
         var patientAge = req.body.patientAge;
         var patientGender = req.body.patientGender;
@@ -290,33 +342,45 @@ const controller = {
         var sql = "UPDATE appointments SET age = '" + patientAge + "', gender = '" + patientGender + "', hospital_name = '" + hospitalName + "', queue_date = '" + queueDate + "', city = '" + city + "', province = '" + province + "', region_name = '" + regionName + "', main_specialty = '" + mainSpecialty + "' WHERE appt_id = '" + appointmentId + "'";
         var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', 1, false)";
 
-        if (deployedOn === 'CENTRAL') {
-            if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-            } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
-                db.query_node('LUZON', sql)
-                db.query_node('LUZON', log);
-            } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
-                db.query_node('VISMIN', sql)
-                db.query_node('VISMIN', log);
-            }
+        console.log("[INFO] Executing postUpdate()");
+        lock.acquire(xKey, function(done) {
+            console.log("[WARNING] Opening " + xKey + " lock for postUpdate()");
 
-        } else if (deployedOn === 'LUZON') {
-            if (db.ping_node('LUZON')) {
-                db.query_node('LUZON', sql)
-            } else if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-                db.query_node('CENTRAL', log);
-            }
+            setTimeout(function() {
+                if (deployedOn === 'CENTRAL') {
+                    if (db.ping_node('CENTRAL')) {
+                        db.query_node('CENTRAL', sql)
+                    } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
+                        db.query_node('LUZON', sql)
+                        db.query_node('LUZON', log);
+                    } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
+                        db.query_node('VISMIN', sql)
+                        db.query_node('VISMIN', log);
+                    }
+        
+                } else if (deployedOn === 'LUZON') {
+                    if (db.ping_node('LUZON')) {
+                        db.query_node('LUZON', sql)
+                    } else if (db.ping_node('CENTRAL')) {
+                        db.query_node('CENTRAL', sql)
+                        db.query_node('CENTRAL', log);
+                    }
+        
+                } else if (deployedOn === 'VISMIN') {
+                    if (db.ping_node('VISMIN')) {
+                        db.query_node('VISMIN', sql)
+                    } else if (db.ping_node('CENTRAL')) {
+                        db.query_node('CENTRAL', sql)
+                        db.query_node('CENTRAL', log);
+                    }
+                }
 
-        } else if (deployedOn === 'VISMIN') {
-            if (db.ping_node('VISMIN')) {
-                db.query_node('VISMIN', sql)
-            } else if (db.ping_node('CENTRAL')) {
-                db.query_node('CENTRAL', sql)
-                db.query_node('CENTRAL', log);
-            }
-        }
+                console.log("[INFO] postUpdate() operation complete.")
+                done();
+            }, 3000)
+        }, function(err, ret) {
+            console.log("[WARNING] " + xKey + " released.");
+        }, {});
     }
 
 };
