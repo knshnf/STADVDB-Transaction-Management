@@ -22,5 +22,3 @@ hostname = process.env.HOSTNAME;
 app.listen(port, function() {
     console.log('Server running at: ' + port);
 });
-
-db.connect();
