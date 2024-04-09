@@ -152,7 +152,7 @@ const controller = {
         var mainSpecialty = req.body.mainSpecialty;
 
         var sql = "INSERT INTO appointments (appt_id, age, gender, hospital_name, queue_date, city, province, region_name, main_specialty) VALUES ('" + appointmentId + "', '" + patientAge + "', '" + patientGender + "', '" + hospitalName + "', '" + queueDate + "', '" + city + "', '" + province + "', '" + regionName + "', '" + mainSpecialty + "')";
-        var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
+        var log = "INSERT INTO transaction_log (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
 
         console.log("[INFO] Executing postCreate()");
         lock.acquire(xKey, function(done) {
@@ -161,7 +161,7 @@ const controller = {
 
             setTimeout(function() {
                 if (deployedOn === 'CENTRAL') {
-                    if (db.ping_node('CENTRAL')) {
+                    if (false) {
                         db.query_node('CENTRAL', sql)
                     } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
                         db.query_node('LUZON', sql)
@@ -199,7 +199,7 @@ const controller = {
         var appointmentId = req.body.appointmentId;
 
         var sql = "DELETE FROM appointments WHERE appt_id = '" + appointmentId + "'";
-        var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
+        var log = "INSERT INTO transaction_log (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
 
         console.log("[INFO] Executing postDelete()");
         lock.acquire(xKey, function(done) {
@@ -340,7 +340,7 @@ const controller = {
         var mainSpecialty = req.body.mainSpecialty;
 
         var sql = "UPDATE appointments SET age = '" + patientAge + "', gender = '" + patientGender + "', hospital_name = '" + hospitalName + "', queue_date = '" + queueDate + "', city = '" + city + "', province = '" + province + "', region_name = '" + regionName + "', main_specialty = '" + mainSpecialty + "' WHERE appt_id = '" + appointmentId + "'";
-        var log = "INSERT INTO transaction_logs (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
+        var log = "INSERT INTO transaction_log (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
 
         console.log("[INFO] Executing postUpdate()");
         lock.acquire(xKey, function(done) {
