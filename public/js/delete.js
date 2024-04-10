@@ -2,6 +2,10 @@ $(document).ready(function() {
     $('#delete-appointment').click(function() {
         const appointmentId = $('#appointment-id').val();
 
+        if (!appointmentId) {
+            alert("Please fill in all fields.");
+        }
+
         const data = {
             appointmentId: appointmentId,
         };
@@ -12,7 +16,9 @@ $(document).ready(function() {
             data: JSON.stringify(data),
             contentType: "application/json",
             success: function(data) {
-                console.log('Appointment successfully deleted.');
+                alert('Appointment successfully deleted.');
+
+                $('#appointment-id').val('');
             }
         });
     });

@@ -10,6 +10,11 @@ $(document).ready(function() {
         const regionName = $('#region-name').val();
         const mainSpecialty = $('#main-specialty').val();
 
+        if (!appointmentId || !patientAge || !patientGender || !hospitalName || !queueDate || !city || !province || !regionName || !mainSpecialty) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
         const data = {
             appointmentId: appointmentId,
             patientAge: patientAge,
@@ -28,7 +33,17 @@ $(document).ready(function() {
             data: JSON.stringify(data),
             contentType: "application/json",
             success: function(data) {
-                console.log('Appointment successfully updated.');
+                alert('Appointment successfully updated.');
+
+                $('#appointment-id').val('');
+                $('#patient-age').val('');
+                $('#patient-gender').val('');
+                $('#hospital-name').val('');
+                $('#queue-date').val('');
+                $('#city').val('');
+                $('#province').val('');
+                $('#region-name').val('');
+                $('#main-specialty').val('');
             }
         });
     });
