@@ -342,7 +342,61 @@ const controller = {
     },
 
     getReport: async function(req, res) {
-        res.render('report');
+        var nodes = await nd.getNodesToQueryRead();
+        var sql = "SELECT * FROM appointments"
+
+        if (nodes.length === 0) {
+            res.render('error', { errorMessage: 'All nodes are unreachable' });
+        } else {
+            let appointments = []
+
+            try {
+                for (let i = 0; i < nodes.length; i++) {
+                    let appointmentsFromNode = await db.query_node(nodes[i], sql);
+                    appointmentsFromNode.forEach(appointment => {
+                        appointment.queue_date = appointment.queue_date.toDateString();
+                        appointments.push(appointment);
+                    });
+                }
+
+                // Total appointments by hospital
+                const appointmentsByHospital = {};
+                appointments.forEach(appointment => {
+                    const hospital = appointment.hospital_name;
+                    appointmentsByHospital[hospital] = (appointmentsByHospital[hospital] || 0) + 1;
+                });
+
+                // Percentage of appointments by specialty
+                const totalAppointments = appointments.length;
+                const appointmentsBySpecialty = {};
+                appointments.forEach(appointment => {
+                    const specialty = appointment.main_specialty;
+                    appointmentsBySpecialty[specialty] = (appointmentsBySpecialty[specialty] || 0) + 1;
+                });
+                for (const specialty in appointmentsBySpecialty) {
+                    appointmentsBySpecialty[specialty] = (appointmentsBySpecialty[specialty] / totalAppointments) * 100;
+                }
+
+                // Total Doctors by Region and Specialty
+                const doctorsByRegionAndSpecialty = {};
+                appointments.forEach(appointment => {
+                    const region = appointment.region_name;
+                    const specialty = appointment.main_specialty;
+                    if (!doctorsByRegionAndSpecialty[region]) {
+                        doctorsByRegionAndSpecialty[region] = {};
+                    }
+                    doctorsByRegionAndSpecialty[region][specialty] = (doctorsByRegionAndSpecialty[region][specialty] || 0) + 1;
+                });
+
+                res.render('report', {
+                    appointmentsByHospital,
+                    appointmentsBySpecialty,
+                    doctorsByRegionAndSpecialty
+                });
+            } catch (error) {
+                res.render('error', { errorMessage: 'An error occurred while fetching appointments: ' + error.message });
+            }
+        }
     }
 
 };
