@@ -14,11 +14,12 @@ const recoverer = {
                 const results = await db.query_node(n, sql);
 
                 if (results.length > 0) {
-                    console.log(`[INFO] recoverer.js: SQL statements for node ${n}:`);
+
                     results.forEach(row => {
+                        console.log("[INFO] recoverer.js: recovering transaction ", +row.sql_statement);
                         sql_statements.push(row.sql_statement);
                         db.query_node(node, row.sql_statement);
-                        var updateSql = "UPDATE transaction_log SET status = 1 WHERE id = " + row.id;
+                        var updateSql = "UPDATE transaction_log SET status = 1 WHERE id = '" + row.id + "'";
                         db.query_node(n, updateSql);
                     });
                     console.log('[INFO] recoverer.js: executed sql statements found in ' + n + 'log');
@@ -36,5 +37,4 @@ const recoverer = {
 
 
 
-module.exports = recoverer;
 module.exports = recoverer;
