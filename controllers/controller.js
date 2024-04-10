@@ -16,9 +16,7 @@ const sKey = "shared";
 const deployedOn = process.env.DEPLOYED;
 
 const luzonRegions = ['National Capital Region (NCR)', 'CALABARZON (IV-A)', 'Ilocos Region (I)', 'Bicol Region (V)', 'Central Luzon (III)']
-const luzonRegionsSQL = luzonRegions.map(region => mysql.escape(region)).join(',');
 const visminRegions = ['Central Visayas (VII)', 'Eastern Visayas (VIII)', 'Western Visayas (VI)', 'SOCCSKSARGEN (Cotabato Region) (XII)', 'Northern Mindanao (X)']
-const visminRegionsSQL = visminRegions.map(region => mysql.escape(region)).join(',');
 
 const controller = {
     getIndex: function(req, res) {
@@ -113,7 +111,7 @@ const controller = {
                 } else if (visminRegions.includes(regionName)) {
                     target = 'VISMIN';
                 }
-                var nodesWithLog = await nd.getNodesToQueryWrite(target);
+                var nodesWithLog = await nd.getNodesToQueryWrite(target, deployedOn);
                 var nodesToQuery = nodesWithLog[0];
                 var nodesToReplicate = nodesWithLog[1];
                 var nodesToLog = nodesWithLog[2];
@@ -190,7 +188,7 @@ const controller = {
                         }
                     }
 
-                    var nodesWithLog = await nd.getNodesToQueryWrite(target);
+                    var nodesWithLog = await nd.getNodesToQueryWrite(target, deployedOn);
                     var nodesToQuery = nodesWithLog[0];
                     var nodesToReplicate = nodesWithLog[1];
                     var nodesToLog = nodesWithLog[2];
@@ -304,7 +302,7 @@ const controller = {
                 } else if (visminRegions.includes(regionName)) {
                     target = 'VISMIN';
                 }
-                var nodesWithLog = await nd.getNodesToQueryWrite(target);
+                var nodesWithLog = await nd.getNodesToQueryWrite(target, deployedOn);
                 var nodesToQuery = nodesWithLog[0];
                 var nodesToReplicate = nodesWithLog[1];
                 var nodesToLog = nodesWithLog[2];
