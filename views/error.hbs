@@ -1,11 +1,22 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Uh oh!</title>
+    <title>Error</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Add your custom styles here */
+    </style>
 </head>
 
 <body>
-    <h1> Page not found </h1>
+    <div class="flex flex-col items-center justify-center h-screen">
+        <h1 class="text-3xl mb-4">An error occurred</h1>
+        {{#if errorMessage}}
+        <p class="text-red-500">{{errorMessage}}</p>
+        {{/if}}
+        <a href="/" class="text-blue-500 mt-4">Back to homepage</a>
+    </div>
 </body>
 
 </html>
