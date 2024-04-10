@@ -1,9 +1,10 @@
 const db = require('./db.js');
+const nd = require('./nodes.js');
 
 const recoverer = {
     update_node: async function(node) {
         console.log('[INFO] recoverer.js: Attempting to recover transactions for Node ' + node);
-        var nodesToQuery = ['CENTRAL', 'LUZON', 'VISMIN'];
+        var nodesToQuery = await nd.getOnlineNodes();
         nodesToQuery = nodesToQuery.filter(n => n !== node);
 
         var sql_statements = []

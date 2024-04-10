@@ -41,67 +41,41 @@ const database = {
 
     ping_node: async function(node) {
         return new Promise((resolve, reject) => {
+            let pool;
             switch (node) {
                 case 'CENTRAL':
-                    central_node.getConnection((err, connection) => {
-                        if (err) {
-                            reject(err);
-                        } else {
-                            connection.ping(err => {
-                                connection.release();
-                                if (err) {
-                                    console.log("[INFO] Central Node is unavailable.")
-                                    resolve(false);
-                                } else {
-                                    console.log("[INFO] Central Node is available.")
-                                    resolve(true);
-                                }
-                            });
-                        }
-                    });
+                    pool = central_node;
                     break;
                 case 'LUZON':
-                    luzon_node.getConnection((err, connection) => {
-                        if (err) {
-                            reject(err);
-                        } else {
-                            connection.ping(err => {
-                                connection.release();
-                                if (err) {
-                                    console.log("[INFO] Luzon Node is unavailable.")
-                                    resolve(false);
-                                } else {
-                                    console.log("[INFO] Luzon Node is available.")
-                                    resolve(true);
-                                }
-                            });
-                        }
-                    });
+                    pool = luzon_node;
                     break;
                 case 'VISMIN':
-                    vismin_node.getConnection((err, connection) => {
-                        if (err) {
-                            reject(err);
-                        } else {
-                            connection.ping(err => {
-                                connection.release();
-                                if (err) {
-                                    console.log("[INFO] VisMin Node is unavailable.")
-                                    resolve(false);
-                                } else {
-                                    console.log("[INFO] VisMin Node is available.")
-                                    resolve(true);
-                                }
-                            });
-                        }
-                    });
+                    pool = vismin_node;
                     break;
                 default:
-                    resolve(false);
-                    break;
+                    return reject(new Error('Invalid node'));
             }
+
+            pool.getConnection((err, connection) => {
+                if (err) {
+                    console.log(`[INFO] ${node} Node is unavailable.`);
+                    resolve(false);
+                } else {
+                    connection.ping(err => {
+                        connection.release();
+                        if (err) {
+                            console.log(`[INFO] ${node} Node is unavailable.`);
+                            resolve(false);
+                        } else {
+                            console.log(`[INFO] ${node} Node is available.`);
+                            resolve(true);
+                        }
+                    });
+                }
+            });
         });
     },
+
 
     query_node: async function(node, query, callback) {
         return new Promise((resolve, reject) => {

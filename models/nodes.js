@@ -22,9 +22,9 @@ const nodes = {
                 // Central and Luzon are Online
                 if (await db.ping_node('LUZON')) {
                     return [
-                        ['CENTRAL'], // Write to central
-                        ['LUZON'], // Replicate to Luzon
-                        ['LUZON']
+                        ['LUZON'], // Write to Luzon
+                        ['CENTRAL'], // Replicate to Central
+                        ['CENTRAL']
                     ]
                 } else { // Need to write a log because LUZON is offline
                     return [
@@ -38,9 +38,9 @@ const nodes = {
             if (target === 'VISMIN') {
                 if (await db.ping_node('VISMIN')) {
                     return [
-                        ['CENTRAL'], // Write to central
-                        ['VISMIN'], // Replicate to VISMIN
-                        ['VISMIN']
+                        ['VISMIN'], // Write to central
+                        ['CENTRAL'], // Replicate to VISMIN
+                        ['CENTRAL']
                     ]
                 } else { // Need to write a log because VISMIN is offline
                     return [
@@ -72,6 +72,20 @@ const nodes = {
                 [],
             ]
         }
+    },
+
+    getOnlineNodes: async function() {
+        var onlineNodes = []
+
+        if (await db.ping_node('CENTRAL')) {
+            onlineNodes.push('CENTRAL')
+        } else if (await db.ping_node('LUZON')) {
+            onlineNodes.push('LUZON')
+        } else if (await db.ping_node('VISMIN')) {
+            onlineNodes.push('VISMIN')
+        }
+
+        return onlineNodes;
     },
 }
 
