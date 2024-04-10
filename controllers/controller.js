@@ -200,42 +200,65 @@ const controller = {
 
         var sql = "DELETE FROM appointments WHERE appt_id = '" + appointmentId + "'";
         var log = "INSERT INTO transaction_log (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
-
         console.log("[INFO] Executing postDelete()");
         lock.acquire(xKey, function(done) {
             console.log("[WARNING] Opening " + xKey + " lock for postDelete()");
 
-            setTimeout(function() {
-                if (deployedOn === 'CENTRAL') {
+            setTimeout(async function() {
+                // Check if the appointment exists
+                var select = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
+                var inCentral = ((await db.ping_node('CENTRAL')) && (await db.query_node('CENTRAL', select)).length > 0)
+                var inLuzon = ((await db.ping_node('LUZON')) && (await db.query_node('LUZON', select)).length > 0)
+                var inVisMin = ((await db.ping_node('VISMIN')) && (await db.query_node('VISMIN', select)).length > 0)
+
+                if (!(inCentral || inLuzon || inVisMin)) {
+                    const error = new Error('No appointments found.');
+                    res.status(500).json({ error: error.message });
+                } else if (deployedOn === 'CENTRAL') {
                     if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
+                        db.query_node('CENTRAL', sql);
+                        res.send(true);
                     } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
-                        db.query_node('LUZON', sql)
+                        db.query_node('LUZON', sql);
                         db.query_node('LUZON', log);
+                        res.send(true);
                     } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
-                        db.query_node('VISMIN', sql)
+                        db.query_node('VISMIN', sql);
                         db.query_node('VISMIN', log);
+                        res.send(true);
+                    } else {
+                        const error = new Error('Nodes are unreachable');
+                        res.status(500).json({ error: error.message });
                     }
 
                 } else if (deployedOn === 'LUZON') {
                     if (db.ping_node('LUZON')) {
                         db.query_node('LUZON', sql)
+                        res.send(true);
                     } else if (db.ping_node('CENTRAL')) {
                         db.query_node('CENTRAL', sql)
                         db.query_node('CENTRAL', log);
+                        res.send(true);
+                    } else {
+                        const error = new Error('Nodes are unreachable');
+                        res.status(500).json({ error: error.message });
                     }
 
                 } else if (deployedOn === 'VISMIN') {
                     if (db.ping_node('VISMIN')) {
                         db.query_node('VISMIN', sql)
+                        res.send(true);
                     } else if (db.ping_node('CENTRAL')) {
                         db.query_node('CENTRAL', sql)
                         db.query_node('CENTRAL', log);
+                        res.send(true);
+                    } else {
+                        const error = new Error('Nodes are unreachable');
+                        res.status(500).json({ error: error.message });
                     }
                 }
                 console.log("[INFO] postDelete() operation complete.")
                 done();
-                res.send(true);
             }, 3000)
         }, function(err, ret) {
             console.log("[WARNING] " + xKey + " released.");
@@ -248,8 +271,18 @@ const controller = {
         console.log("[INFO] Executing getUpdateForm()");
         lock.acquire(sKey, function(done) {
             console.log("[WARNING] Opening " + sKey + " lock for getUpdateForm()");
-            setTimeout(function() {
-                if (deployedOn === 'CENTRAL') {
+            setTimeout(async function() {
+                // Check if the appointment exists
+                // Check if the appointment exists
+                var select = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
+                var inCentral = ((await db.ping_node('CENTRAL')) && (await db.query_node('CENTRAL', select)).length > 0)
+                var inLuzon = ((await db.ping_node('LUZON')) && (await db.query_node('LUZON', select)).length > 0)
+                var inVisMin = ((await db.ping_node('VISMIN')) && (await db.query_node('VISMIN', select)).length > 0)
+
+                if (!(inCentral || inLuzon || inVisMin)) {
+                    const error = new Error('No appointments found.');
+                    res.status(500).json({ error: error.message });
+                } else if (deployedOn === 'CENTRAL') {
                     var sql = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
                     if (db.ping_node('CENTRAL')) {
                         db.query_node('CENTRAL', sql, function(err, appointment) {
@@ -258,6 +291,11 @@ const controller = {
                                 res.status(500).send('Error fetching appointment data');
                                 return;
                             }
+
+                            if (appointment.length === 0) {
+                                return;
+                            }
+
                             console.log(appointment);
                             appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
                             res.render('updateForm', { appointment: appointment[0] });
@@ -322,7 +360,7 @@ const controller = {
                         });
                     }
                 }
-                console.log("[INFO] postUpdate() operation complete.")
+                console.log("[INFO] getUpdateForm() operation complete.")
                 done();
             }, 3000)
         }, function(err, ret) {

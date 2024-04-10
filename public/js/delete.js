@@ -21,6 +21,10 @@ $(document).ready(function() {
 
                 $('#appointment-id').val('');
                 $("body").css("cursor", "default");
+            },
+            error: function(xhr, status, error) {
+                alert(JSON.parse(xhr.responseText).error); // Show error message to the user
+                $("body").css("cursor", "default");
             }
         });
     });
