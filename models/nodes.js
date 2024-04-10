@@ -79,9 +79,11 @@ const nodes = {
 
         if (await db.ping_node('CENTRAL')) {
             onlineNodes.push('CENTRAL')
-        } else if (await db.ping_node('LUZON')) {
+        }
+        if (await db.ping_node('LUZON')) {
             onlineNodes.push('LUZON')
-        } else if (await db.ping_node('VISMIN')) {
+        }
+        if (await db.ping_node('VISMIN')) {
             onlineNodes.push('VISMIN')
         }
 
