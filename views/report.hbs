@@ -1,22 +1,31 @@
-<!DOCTYPE html>
-<html>
+<div class="flex flex-col items-center gap-6">
+    <h1 class="mt-5 text-lg">Reports</h1>
 
-<head>
-    <title> STADVDB Transaction Management </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-</head>
-
-<body>
-    <div class="flex flex-col items-center gap-6">
-        <h1 class="mt-5 text-lg"> Reports will appear here </h1>
-        <div class="flex flex-col gap-4">
-
-        </div>
+    <div>
+        <h2>Total Appointments by Hospital</h2>
+        <ul>
+            {{#each appointmentsByHospital}}
+            <li>{{HOSPITAL NAME}}: {{TotalAppointments}}</li>
+            {{/each}}
+        </ul>
     </div>
-</body>
 
-</html>
+    <div>
+        <h2>Percentage of Appointments by Specialty</h2>
+        <ul>
+            {{#each appointmentsBySpecialty}}
+            <li>{{MAIN SPECIALTY}}: {{Percentage}}%</li>
+            {{/each}}
+        </ul>
+    </div>
+
+
+    <div>
+        <h2>Total Doctors by Region and Specialty</h2>
+        <ul>
+            {{#each doctorsByRegionAndSpecialty}}
+            <li>{{REGION NAME}} - {{MAIN SPECIALTY}}: {{TotalDoctors}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
