@@ -25,6 +25,7 @@ $(document).ready(function() {
             mainSpecialty: mainSpecialty
         };
 
+        $("body").css("cursor", "progress");
         $.ajax({
             url: "/create",
             type: "POST",
@@ -41,6 +42,7 @@ $(document).ready(function() {
                 $('#province').val('');
                 $('#region-name').val('');
                 $('#main-specialty').val('');
+                $("body").css("cursor", "default");
             }
         });
     });

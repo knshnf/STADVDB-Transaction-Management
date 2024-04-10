@@ -10,6 +10,7 @@ $(document).ready(function() {
             appointmentId: appointmentId,
         };
 
+        $("body").css("cursor", "progress");
         $.ajax({
             url: "/delete",
             type: "POST",
@@ -19,6 +20,7 @@ $(document).ready(function() {
                 alert('Appointment successfully deleted.');
 
                 $('#appointment-id').val('');
+                $("body").css("cursor", "default");
             }
         });
     });
