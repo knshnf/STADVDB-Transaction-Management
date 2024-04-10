@@ -37,4 +37,3 @@ const recoverer = {
 
 
 module.exports = recoverer;
-module.exports = recoverer;

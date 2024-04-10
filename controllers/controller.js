@@ -1,5 +1,6 @@
 const cuid = require('cuid');
 const db = require('../models/db.js');
+const rp = require('../models/replicator.js');
 const dotenv = require('dotenv');
 const mysql = require('mysql');
 dotenv.config('../.env');
@@ -139,7 +140,7 @@ const controller = {
         res.render('error', error);
     },
 
-    postCreate: function(req, res) { // done
+    postCreate: async function(req, res) { // done
         var appointmentId = cuid();
         var patientAge = req.body.patientAge;
         var patientGender = req.body.patientGender;
@@ -151,39 +152,57 @@ const controller = {
         var mainSpecialty = req.body.mainSpecialty;
 
         var sql = "INSERT INTO appointments (appt_id, age, gender, hospital_name, queue_date, city, province, region_name, main_specialty) VALUES ('" + appointmentId + "', '" + patientAge + "', '" + patientGender + "', '" + hospitalName + "', '" + queueDate + "', '" + city + "', '" + province + "', '" + regionName + "', '" + mainSpecialty + "')";
-        var log = "INSERT INTO transaction_log (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
+        var transactionId = cuid();
+        var log = "INSERT INTO transaction_log (id, date, sql_statement, node, status) VALUES ('" + transactionId + "', NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
 
         console.log("[INFO] Executing postCreate()");
         lock.acquire(xKey, function(done) {
             console.log("[WARNING] Opening " + xKey + " lock for postCreate()");
 
-
-            setTimeout(function() {
+            setTimeout(async function() {
                 if (deployedOn === 'CENTRAL') {
-                    if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
-                    } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
+                    if (luzonRegions.includes(regionName) && await db.ping_node('LUZON') && await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('LUZON', sql);
+                        rp.replicate('CENTRAL', 'LUZON', sql, transactionId);
+                    } else if (visminRegions.includes(regionName) && await db.ping_node('VISMIN') && await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('VISMIN', sql);
+                        rp.replicate('CENTRAL', 'VISMIN', sql, transactionId);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('CENTRAL', log);
+                    } else if (luzonRegions.includes(regionName) && await db.ping_node('LUZON')) {
                         db.query_node('LUZON', sql)
                         db.query_node('LUZON', log);
-                    } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
+                    } else if (visminRegions.includes(regionName) && await db.ping_node('VISMIN')) {
                         db.query_node('VISMIN', sql)
                         db.query_node('VISMIN', log);
                     }
-
                 } else if (deployedOn === 'LUZON') {
-                    if (db.ping_node('LUZON')) {
-                        db.query_node('LUZON', sql)
-                    } else if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
-                        db.query_node('CENTRAL', log);
+                    if (await (db.ping_node('LUZON')) && await (db.ping_node('CENTRAL'))) {
+                        await db.query_node('LUZON', sql)
+                        await db.query_node('LUZON', log);
+                        await rp.replicate('LUZON', 'CENTRAL', sql, transactionId);
+                    } else if (await db.ping_node('LUZON')) {
+                        await db.query_node('LUZON', sql);
+                        await db.query_node('LUZON', log);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql)
+                        await db.query_node('CENTRAL', log);
                     }
 
                 } else if (deployedOn === 'VISMIN') {
-                    if (db.ping_node('VISMIN')) {
-                        db.query_node('VISMIN', sql)
-                    } else if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
-                        db.query_node('CENTRAL', log);
+                    if (await (db.ping_node('VISMIN')) && await (db.ping_node('CENTRAL'))) {
+                        await db.query_node('VISMIN', sql)
+                        await db.query_node('VISMIN', log);
+                        await rp.replicate('VISMIN', 'CENTRAL', sql, transactionId);
+                    } else if (await db.ping_node('VISMIN')) {
+                        await db.query_node('VISMIN', sql);
+                        await db.query_node('VISMIN', log);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql)
+                        await db.query_node('CENTRAL', log);
                     }
                 }
                 console.log("[INFO] postCreate() operation complete.");
@@ -195,11 +214,12 @@ const controller = {
         }, {});
     },
 
-    postDelete: function(req, res) { // has locks
+    postDelete: async function(req, res) { // has locks
         var appointmentId = req.body.appointmentId;
 
         var sql = "DELETE FROM appointments WHERE appt_id = '" + appointmentId + "'";
-        var log = "INSERT INTO transaction_log (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
+        var transactionId = cuid();
+        var log = "INSERT INTO transaction_log (id, date, sql_statement, node, status) VALUES ('" + transactionId + "', NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
         console.log("[INFO] Executing postDelete()");
         lock.acquire(xKey, function(done) {
             console.log("[WARNING] Opening " + xKey + " lock for postDelete()");
@@ -215,15 +235,26 @@ const controller = {
                     const error = new Error('No appointments found.');
                     res.status(500).json({ error: error.message });
                 } else if (deployedOn === 'CENTRAL') {
-                    if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql);
+                    if (luzonRegions.includes(regionName) && await db.ping_node('LUZON') && await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('LUZON', sql);
+                        rp.replicate('CENTRAL', 'LUZON', sql, transactionId);
                         res.send(true);
-                    } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
-                        db.query_node('LUZON', sql);
+                    } else if (visminRegions.includes(regionName) && await db.ping_node('VISMIN') && await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('VISMIN', sql);
+                        rp.replicate('CENTRAL', 'VISMIN', sql, transactionId);
+                        res.send(true);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('CENTRAL', log);
+                        res.send(true);
+                    } else if (luzonRegions.includes(regionName) && await db.ping_node('LUZON')) {
+                        db.query_node('LUZON', sql)
                         db.query_node('LUZON', log);
                         res.send(true);
-                    } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
-                        db.query_node('VISMIN', sql);
+                    } else if (visminRegions.includes(regionName) && await db.ping_node('VISMIN')) {
+                        db.query_node('VISMIN', sql)
                         db.query_node('VISMIN', log);
                         res.send(true);
                     } else {
@@ -232,12 +263,18 @@ const controller = {
                     }
 
                 } else if (deployedOn === 'LUZON') {
-                    if (db.ping_node('LUZON')) {
-                        db.query_node('LUZON', sql)
+                    if (await (db.ping_node('LUZON')) && await (db.ping_node('CENTRAL'))) {
+                        await db.query_node('LUZON', sql)
+                        await db.query_node('LUZON', log);
+                        await rp.replicate('LUZON', 'CENTRAL', sql, transactionId);
                         res.send(true);
-                    } else if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
-                        db.query_node('CENTRAL', log);
+                    } else if (await db.ping_node('LUZON')) {
+                        await db.query_node('LUZON', sql);
+                        await db.query_node('LUZON', log);
+                        res.send(true);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql)
+                        await db.query_node('CENTRAL', log);
                         res.send(true);
                     } else {
                         const error = new Error('Nodes are unreachable');
@@ -245,12 +282,19 @@ const controller = {
                     }
 
                 } else if (deployedOn === 'VISMIN') {
-                    if (db.ping_node('VISMIN')) {
-                        db.query_node('VISMIN', sql)
+
+                    if (await (db.ping_node('VISMIN')) && await (db.ping_node('CENTRAL'))) {
+                        await db.query_node('VISMIN', sql)
+                        await db.query_node('VISMIN', log);
+                        await rp.replicate('VISMIN', 'CENTRAL', sql, transactionId);
                         res.send(true);
-                    } else if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
-                        db.query_node('CENTRAL', log);
+                    } else if (await db.ping_node('VISMIN')) {
+                        await db.query_node('VISMIN', sql);
+                        await db.query_node('VISMIN', log);
+                        res.send(true);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql)
+                        await db.query_node('CENTRAL', log);
                         res.send(true);
                     } else {
                         const error = new Error('Nodes are unreachable');
@@ -388,7 +432,7 @@ const controller = {
         }, { shared: true });
     },
 
-    postUpdate: function(req, res) { // locks done
+    postUpdate: async function(req, res) { // locks done
         var appointmentId = req.body.appointmentId;
         var patientAge = req.body.patientAge;
         var patientGender = req.body.patientGender;
@@ -400,38 +444,57 @@ const controller = {
         var mainSpecialty = req.body.mainSpecialty;
 
         var sql = "UPDATE appointments SET age = '" + patientAge + "', gender = '" + patientGender + "', hospital_name = '" + hospitalName + "', queue_date = '" + queueDate + "', city = '" + city + "', province = '" + province + "', region_name = '" + regionName + "', main_specialty = '" + mainSpecialty + "' WHERE appt_id = '" + appointmentId + "'";
-        var log = "INSERT INTO transaction_log (date, sql_statement, node, status) VALUES (NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
+        var transactionId = cuid();
+        var log = "INSERT INTO transaction_log (id, date, sql_statement, node, status) VALUES ('" + transactionId + "', NOW(), '" + sql.replace(/'/g, "''") + "', '" + deployedOn + "', false)";
 
         console.log("[INFO] Executing postUpdate()");
         lock.acquire(xKey, function(done) {
             console.log("[WARNING] Opening " + xKey + " lock for postUpdate()");
 
-            setTimeout(function() {
+            setTimeout(async function() {
                 if (deployedOn === 'CENTRAL') {
-                    if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
-                    } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
+                    if (luzonRegions.includes(regionName) && await db.ping_node('LUZON') && await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('LUZON', sql);
+                        rp.replicate('CENTRAL', 'LUZON', sql, transactionId);
+                    } else if (visminRegions.includes(regionName) && await db.ping_node('VISMIN') && await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('VISMIN', sql);
+                        rp.replicate('CENTRAL', 'VISMIN', sql, transactionId);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql);
+                        await db.query_node('CENTRAL', log);
+                    } else if (luzonRegions.includes(regionName) && await db.ping_node('LUZON')) {
                         db.query_node('LUZON', sql)
                         db.query_node('LUZON', log);
-                    } else if (visminRegions.includes(regionName) && db.ping_node('VISMIN')) {
+                    } else if (visminRegions.includes(regionName) && await db.ping_node('VISMIN')) {
                         db.query_node('VISMIN', sql)
                         db.query_node('VISMIN', log);
                     }
-
                 } else if (deployedOn === 'LUZON') {
-                    if (db.ping_node('LUZON')) {
-                        db.query_node('LUZON', sql)
-                    } else if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
-                        db.query_node('CENTRAL', log);
+                    if (await (db.ping_node('LUZON')) && await (db.ping_node('CENTRAL'))) {
+                        await db.query_node('LUZON', sql)
+                        await db.query_node('LUZON', log);
+                        await rp.replicate('LUZON', 'CENTRAL', sql, transactionId);
+                    } else if (await db.ping_node('LUZON')) {
+                        await db.query_node('LUZON', sql);
+                        await db.query_node('LUZON', log);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql)
+                        await db.query_node('CENTRAL', log);
                     }
 
                 } else if (deployedOn === 'VISMIN') {
-                    if (db.ping_node('VISMIN')) {
-                        db.query_node('VISMIN', sql)
-                    } else if (db.ping_node('CENTRAL')) {
-                        db.query_node('CENTRAL', sql)
-                        db.query_node('CENTRAL', log);
+                    if (await (db.ping_node('VISMIN')) && await (db.ping_node('CENTRAL'))) {
+                        await db.query_node('VISMIN', sql)
+                        await db.query_node('VISMIN', log);
+                        await rp.replicate('VISMIN', 'CENTRAL', sql, transactionId);
+                    } else if (await db.ping_node('VISMIN')) {
+                        await db.query_node('VISMIN', sql);
+                        await db.query_node('VISMIN', log);
+                    } else if (await db.ping_node('CENTRAL')) {
+                        await db.query_node('CENTRAL', sql)
+                        await db.query_node('CENTRAL', log);
                     }
                 }
 
