@@ -50,10 +50,10 @@ const database = {
                             connection.ping(err => {
                                 connection.release();
                                 if (err) {
-                                    console.log("Central Node is unavailable.")
+                                    console.log("[INFO] Central Node is unavailable.")
                                     resolve(false);
                                 } else {
-                                    console.log("Central Node is available.")
+                                    console.log("[INFO] Central Node is available.")
                                     resolve(true);
                                 }
                             });
@@ -68,10 +68,10 @@ const database = {
                             connection.ping(err => {
                                 connection.release();
                                 if (err) {
-                                    console.log("Luzon Node is unavailable.")
+                                    console.log("[INFO] Luzon Node is unavailable.")
                                     resolve(false);
                                 } else {
-                                    console.log("Luzon Node is available.")
+                                    console.log("[INFO] Luzon Node is available.")
                                     resolve(true);
                                 }
                             });
@@ -86,10 +86,10 @@ const database = {
                             connection.ping(err => {
                                 connection.release();
                                 if (err) {
-                                    console.log("VisMin Node is unavailable.")
+                                    console.log("[INFO] VisMin Node is unavailable.")
                                     resolve(false);
                                 } else {
-                                    console.log("VisMin Node is available.")
+                                    console.log("[INFO] VisMin Node is available.")
                                     resolve(true);
                                 }
                             });

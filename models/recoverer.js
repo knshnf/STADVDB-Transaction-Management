@@ -2,7 +2,7 @@ const db = require('./db.js');
 
 const recoverer = {
     update_node: async function(node) {
-        console.log('recoverer.js: Attempting to recover transactions for Node ' + node);
+        console.log('[INFO] recoverer.js: Attempting to recover transactions for Node ' + node);
         var nodesToQuery = ['CENTRAL', 'LUZON', 'VISMIN'];
         nodesToQuery = nodesToQuery.filter(n => n !== node);
 
@@ -14,16 +14,16 @@ const recoverer = {
                 const results = await db.query_node(n, sql);
 
                 if (results.length > 0) {
-                    console.log(`recoverer.js: SQL statements for node ${n}:`);
+                    console.log(`[INFO] recoverer.js: SQL statements for node ${n}:`);
                     results.forEach(row => {
                         sql_statements.push(row.sql_statement);
                         db.query_node(node, row.sql_statement);
                         var updateSql = "UPDATE transaction_log SET status = 1 WHERE id = " + row.id;
                         db.query_node(n, updateSql);
-                        console.log('recoverer.js: performed')
                     });
+                    console.log('[INFO] recoverer.js: executed sql statements found in ' + n + 'log');
                 } else {
-                    console.log(`recoverer.js: No SQL statements found for node ${n}`);
+                    console.log(`[INFO] recoverer.js: No SQL statements found for node ${n}`);
                 }
             });
 
@@ -36,4 +36,5 @@ const recoverer = {
 
 
 
+module.exports = recoverer;
 module.exports = recoverer;
