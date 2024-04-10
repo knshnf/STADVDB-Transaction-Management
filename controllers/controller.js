@@ -442,6 +442,10 @@ const controller = {
         }, function(err, ret) {
             console.log("[WARNING] " + xKey + " released.");
         }, {});
+    },
+
+    getReport: function(req, res) {
+        res.render('report');
     }
 
 };
