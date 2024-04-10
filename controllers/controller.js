@@ -312,6 +312,11 @@ const controller = {
                                 res.status(500).send('Error fetching appointment data');
                                 return;
                             }
+
+                            if (appointment.length === 0) {
+                                return;
+                            }
+
                             console.log(appointment);
                             appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
                             res.render('updateForm', { appointment: appointment[0] });
@@ -325,6 +330,11 @@ const controller = {
                                 res.status(500).send('Error fetching appointment data');
                                 return;
                             }
+
+                            if (appointment.length === 0) {
+                                return;
+                            }
+
                             console.log(appointment);
                             appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
                             res.render('updateForm', { appointment: appointment[0] });
@@ -341,6 +351,11 @@ const controller = {
                                 res.status(500).send('Error fetching appointment data');
                                 return;
                             }
+
+                            if (appointment.length === 0) {
+                                return;
+                            }
+
                             console.log(appointment);
                             appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
                             res.render('updateForm', { appointment: appointment[0] });
@@ -354,6 +369,11 @@ const controller = {
                                 res.status(500).send('Error fetching appointment data');
                                 return;
                             }
+
+                            if (appointment.length === 0) {
+                                return;
+                            }
+
                             console.log(appointment);
                             appointment[0].queue_date = appointment[0].queue_date.toISOString().split('T')[0]
                             res.render('updateForm', { appointment: appointment[0] });

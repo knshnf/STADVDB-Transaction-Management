@@ -46,6 +46,8 @@ $(document).ready(function() {
                 $('#region-name').val('');
                 $('#main-specialty').val('');
                 $("body").css("cursor", "default");
+
+                window.location.href = '/update';
             }
         });
     });
