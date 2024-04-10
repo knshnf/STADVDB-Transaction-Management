@@ -88,12 +88,10 @@ const controller = {
     postCreate: async function(req, res) { // done
         if (req.body.appointmentId = null) {
             var appointmentId = cuid();
-        }
-        else if (req.body.appointmendId = "-1") {
+        } else if (req.body.appointmendId = "-1") {
             var appointmentId = -1;
-        }
-        else {  var appointmentId = cuid(); }
-       
+        } else { var appointmentId = cuid(); }
+
         var patientAge = req.body.patientAge;
         var patientGender = req.body.patientGender;
         var hospitalName = req.body.hospitalName;
@@ -404,6 +402,47 @@ const controller = {
                 res.render('error', { errorMessage: 'An error occurred while fetching appointments: ' + error.message });
             }
         }
+    },
+
+    getSearch: async function(req, res) {
+        var value = req.params.value;
+        var field = req.params.field;
+
+        console.log("[INFO] Executing getView()");
+        lock.acquire(sKey, function(done) {
+                console.log("[WARNING] Opening " + sKey + " lock for getView()...");
+
+                setTimeout(async function() {
+                    var nodes = await nd.getNodesToQueryRead();
+                    var sql = "SELECT * FROM appointments WHERE " + field + "=" + "'" + value + "'";
+                    console.log(sql);
+
+                    if (nodes.length === 0) {
+                        res.render('error', { errorMessage: 'All nodes are unreachable' });
+                    } else {
+                        let appointments = []
+
+                        try {
+                            for (let i = 0; i < nodes.length; i++) {
+                                let appointmentsFromNode = await db.query_node(nodes[i], sql);
+                                appointmentsFromNode.forEach(appointment => {
+                                    appointment.queue_date = appointment.queue_date.toDateString();
+                                    appointments.push(appointment);
+                                });
+                            }
+                            res.render('view', { appointments: appointments });
+                        } catch (error) {
+                            res.render('error', { errorMessage: 'An error occurred while fetching appointments: ' + error.message });
+                        }
+                    }
+                    console.log("Task getSearch() complete.");
+                    done();
+                }, 1000)
+            },
+            function(err, ret) {
+                console.log("[WARNING] " + sKey + "lock released...");
+            }, { shared: true });
+
     }
 
 };
