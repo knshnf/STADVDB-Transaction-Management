@@ -161,7 +161,7 @@ const controller = {
 
             setTimeout(function() {
                 if (deployedOn === 'CENTRAL') {
-                    if (false) {
+                    if (db.ping_node('CENTRAL')) {
                         db.query_node('CENTRAL', sql)
                     } else if (luzonRegions.includes(regionName) && db.ping_node('LUZON')) {
                         db.query_node('LUZON', sql)
@@ -187,8 +187,9 @@ const controller = {
                         db.query_node('CENTRAL', log);
                     }
                 }
-                console.log("[INFO] postCreate() operation complete.")
+                console.log("[INFO] postCreate() operation complete.");
                 done();
+                res.send(true);
             }, 3000)
         }, function(err, ret) {
             console.log("[WARNING] " + xKey + " released.");
@@ -235,6 +236,7 @@ const controller = {
                 }
                 console.log("[INFO] postDelete() operation complete.")
                 done();
+                res.send(true);
             }, 3000)
         }, function(err, ret) {
             console.log("[WARNING] " + xKey + " released.");
@@ -377,6 +379,7 @@ const controller = {
 
                 console.log("[INFO] postUpdate() operation complete.")
                 done();
+                res.send(true);
             }, 3000)
         }, function(err, ret) {
             console.log("[WARNING] " + xKey + " released.");
