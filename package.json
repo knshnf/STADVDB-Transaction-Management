@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test1": "jest --testPathPattern=__tests__/case-01",
+    "test2": "jest --testPathPattern=__tests__/case-02 --maxWorkers=4",
+    "testa": "jest --silent",
     "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@testing-library/user-event": "^14.5.2",
     "async-lock": "^1.4.1",
     "body-parser": "^1.20.2",
     "cuid": "^3.0.0",
@@ -18,6 +21,12 @@
     "handlebars": "^4.7.8",
     "hbs": "^4.2.0",
     "mysql": "^2.18.1",
-    "mysql2": "^3.9.3"
+    "mysql2": "^3.9.3",
+    "puppeteer": "^22.6.3",
+    "supertest": "^6.3.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0"
   }
 }

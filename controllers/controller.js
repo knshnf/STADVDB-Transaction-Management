@@ -86,7 +86,14 @@ const controller = {
     },
 
     postCreate: async function(req, res) { // done
-        var appointmentId = cuid();
+        if (req.body.appointmentId = null) {
+            var appointmentId = cuid();
+        }
+        else if (req.body.appointmendId = "-1") {
+            var appointmentId = -1;
+        }
+        else {  var appointmentId = cuid(); }
+       
         var patientAge = req.body.patientAge;
         var patientGender = req.body.patientGender;
         var hospitalName = req.body.hospitalName;
