@@ -32,16 +32,13 @@ const controller = {
     },
 
     getView: function(req, res) { // has locks
-
-        var sql = "SELECT * FROM appointments";
-
         console.log("[INFO] Executing getView()");
         lock.acquire(sKey, function(done) {
             console.log("[WARNING] Opening " + sKey + " lock for getView()...");
 
             setTimeout(function() {
-
                 if (deployedOn === 'CENTRAL') {
+                    var sql = "SELECT * FROM appointments";
                     if (db.ping_node('CENTRAL')) {
                         db.query_node('CENTRAL', sql, function(err, appointments) {
                             if (err) {
@@ -58,6 +55,7 @@ const controller = {
                     // TODO: What if central is down?
 
                 } else if (deployedOn === 'LUZON') {
+                    var sql = "SELECT * FROM appointments";
                     if (db.ping_node('LUZON')) {
                         db.query_node('LUZON', sql, function(err, appointments) {
                             if (err) {
@@ -88,6 +86,7 @@ const controller = {
 
 
                 } else if (deployedOn === 'VISMIN') {
+                    var sql = "SELECT * FROM appointments";
                     if (db.ping_node('VISMIN')) {
                         db.query_node('VISMIN', sql, function(err, appointments) {
                             if (err) {
@@ -246,13 +245,12 @@ const controller = {
     getUpdateForm: function(req, res) {
         var appointmentId = req.params.id;
 
-        var sql = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
-
         console.log("[INFO] Executing getUpdateForm()");
         lock.acquire(sKey, function(done) {
             console.log("[WARNING] Opening " + sKey + " lock for getUpdateForm()");
             setTimeout(function() {
                 if (deployedOn === 'CENTRAL') {
+                    var sql = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
                     if (db.ping_node('CENTRAL')) {
                         db.query_node('CENTRAL', sql, function(err, appointment) {
                             if (err) {
@@ -269,6 +267,7 @@ const controller = {
 
                 } else if (deployedOn === 'LUZON') {
                     if (db.ping_node('LUZON')) {
+                        var sql = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
                         db.query_node('LUZON', sql, function(err, appointment) {
                             if (err) {
                                 console.error(err);
@@ -297,6 +296,7 @@ const controller = {
 
                 } else if (deployedOn === 'VISMIN') {
                     if (db.ping_node('VISMIN')) {
+                        var sql = "SELECT * FROM appointments WHERE appt_id = '" + appointmentId + "'";
                         db.query_node('VISMIN', sql, function(err, appointment) {
                             if (err) {
                                 console.error(err);
