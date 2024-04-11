@@ -14,7 +14,21 @@
     <script type="text/javascript" src="../js/view.js"></script>
     <div class="flex flex-col items-center gap-6">
         <h1 class="mt-5 text-lg"> View appointments </h1>
-        <div class="flex flex-col gap-4 mx-2">
+        <div class="flex flex-col gap-4 mx-2 items-center">
+            <input id="searchInput" type="text" placeholder="Search..." class="w-64 text-center">
+            <select id="searchField" class="w-64 ml-2 p-2 border border-gray-300 rounded">
+                <option value="appt_id">Appointment ID</option>
+                <option value="age">Age</option>
+                <option value="gender">Gender</option>
+                <option value="hospital_name">Hospital Name</option>
+                <option value="queue_date">Queue Date</option>
+                <option value="city">City</option>
+                <option value="province">Province</option>
+                <option value="region_name">Region Name</option>
+                <option value="main_specialty">Main Specialty</option>
+            </select>
+            <button id="search-appointments"
+                class="w-64 ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Search</button>
             {{> table}}
         </div>
     </div>

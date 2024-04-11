@@ -1,9 +1,10 @@
 const db = require('./db.js');
+const nd = require('./nodes.js');
 
 const recoverer = {
     update_node: async function(node) {
         console.log('[INFO] recoverer.js: Attempting to recover transactions for Node ' + node);
-        var nodesToQuery = ['CENTRAL', 'LUZON', 'VISMIN'];
+        var nodesToQuery = await nd.getOnlineNodes();
         nodesToQuery = nodesToQuery.filter(n => n !== node);
 
         var sql_statements = []
@@ -16,13 +17,13 @@ const recoverer = {
                 if (results.length > 0) {
 
                     results.forEach(row => {
-                        console.log("[INFO] recoverer.js: recovering transaction ", +row.sql_statement);
+                        console.log("[INFO] recoverer.js: recovering transaction " + row.sql_statement);
                         sql_statements.push(row.sql_statement);
                         db.query_node(node, row.sql_statement);
                         var updateSql = "UPDATE transaction_log SET status = 1 WHERE id = '" + row.id + "'";
                         db.query_node(n, updateSql);
                     });
-                    console.log('[INFO] recoverer.js: executed sql statements found in ' + n + 'log');
+                    console.log('[INFO] recoverer.js: executed sql statements found in ' + n);
                 } else {
                     console.log(`[INFO] recoverer.js: No SQL statements found for node ${n}`);
                 }

@@ -16,9 +16,7 @@ const sKey = "shared";
 const deployedOn = process.env.DEPLOYED;
 
 const luzonRegions = ['National Capital Region (NCR)', 'CALABARZON (IV-A)', 'Ilocos Region (I)', 'Bicol Region (V)', 'Central Luzon (III)']
-const luzonRegionsSQL = luzonRegions.map(region => mysql.escape(region)).join(',');
 const visminRegions = ['Central Visayas (VII)', 'Eastern Visayas (VIII)', 'Western Visayas (VI)', 'SOCCSKSARGEN (Cotabato Region) (XII)', 'Northern Mindanao (X)']
-const visminRegionsSQL = visminRegions.map(region => mysql.escape(region)).join(',');
 
 const controller = {
     getIndex: function(req, res) {
@@ -88,9 +86,8 @@ const controller = {
     postCreate: async function(req, res) { // done
         if (req.body.appointmentId === "-1") {
             var appointmentId = -1;
-        }
-        else {  var appointmentId = cuid(); }
-       
+        } else { var appointmentId = cuid(); }
+
         var patientAge = req.body.patientAge;
         var patientGender = req.body.patientGender;
         var hospitalName = req.body.hospitalName;
@@ -112,7 +109,7 @@ const controller = {
                 } else if (visminRegions.includes(regionName)) {
                     target = 'VISMIN';
                 }
-                var nodesWithLog = await nd.getNodesToQueryWrite(target);
+                var nodesWithLog = await nd.getNodesToQueryWrite(target, deployedOn);
                 var nodesToQuery = nodesWithLog[0];
                 var nodesToReplicate = nodesWithLog[1];
                 var nodesToLog = nodesWithLog[2];
@@ -189,7 +186,7 @@ const controller = {
                         }
                     }
 
-                    var nodesWithLog = await nd.getNodesToQueryWrite(target);
+                    var nodesWithLog = await nd.getNodesToQueryWrite(target, deployedOn);
                     var nodesToQuery = nodesWithLog[0];
                     var nodesToReplicate = nodesWithLog[1];
                     var nodesToLog = nodesWithLog[2];
@@ -303,7 +300,7 @@ const controller = {
                 } else if (visminRegions.includes(regionName)) {
                     target = 'VISMIN';
                 }
-                var nodesWithLog = await nd.getNodesToQueryWrite(target);
+                var nodesWithLog = await nd.getNodesToQueryWrite(target, deployedOn);
                 var nodesToQuery = nodesWithLog[0];
                 var nodesToReplicate = nodesWithLog[1];
                 var nodesToLog = nodesWithLog[2];
@@ -346,7 +343,102 @@ const controller = {
     },
 
     getReport: async function(req, res) {
-        res.render('report');
+        var nodes = await nd.getNodesToQueryRead();
+        var sql = "SELECT * FROM appointments"
+
+        if (nodes.length === 0) {
+            res.render('error', { errorMessage: 'All nodes are unreachable' });
+        } else {
+            let appointments = []
+
+            try {
+                for (let i = 0; i < nodes.length; i++) {
+                    let appointmentsFromNode = await db.query_node(nodes[i], sql);
+                    appointmentsFromNode.forEach(appointment => {
+                        appointment.queue_date = appointment.queue_date.toDateString();
+                        appointments.push(appointment);
+                    });
+                }
+
+                // Total appointments by hospital
+                const appointmentsByHospital = {};
+                appointments.forEach(appointment => {
+                    const hospital = appointment.hospital_name;
+                    appointmentsByHospital[hospital] = (appointmentsByHospital[hospital] || 0) + 1;
+                });
+
+                // Percentage of appointments by specialty
+                const totalAppointments = appointments.length;
+                const appointmentsBySpecialty = {};
+                appointments.forEach(appointment => {
+                    const specialty = appointment.main_specialty;
+                    appointmentsBySpecialty[specialty] = (appointmentsBySpecialty[specialty] || 0) + 1;
+                });
+                for (const specialty in appointmentsBySpecialty) {
+                    appointmentsBySpecialty[specialty] = (appointmentsBySpecialty[specialty] / totalAppointments) * 100;
+                }
+
+                // Total Doctors by Region and Specialty
+                const doctorsByRegionAndSpecialty = {};
+                appointments.forEach(appointment => {
+                    const region = appointment.region_name;
+                    const specialty = appointment.main_specialty;
+                    if (!doctorsByRegionAndSpecialty[region]) {
+                        doctorsByRegionAndSpecialty[region] = {};
+                    }
+                    doctorsByRegionAndSpecialty[region][specialty] = (doctorsByRegionAndSpecialty[region][specialty] || 0) + 1;
+                });
+
+                res.render('report', {
+                    appointmentsByHospital,
+                    appointmentsBySpecialty,
+                    doctorsByRegionAndSpecialty
+                });
+            } catch (error) {
+                res.render('error', { errorMessage: 'An error occurred while fetching appointments: ' + error.message });
+            }
+        }
+    },
+
+    getSearch: async function(req, res) {
+        var value = req.params.value;
+        var field = req.params.field;
+
+        console.log("[INFO] Executing getView()");
+        lock.acquire(sKey, function(done) {
+                console.log("[WARNING] Opening " + sKey + " lock for getView()...");
+
+                setTimeout(async function() {
+                    var nodes = await nd.getNodesToQueryRead();
+                    var sql = "SELECT * FROM appointments WHERE " + field + "=" + "'" + value + "'";
+                    console.log(sql);
+
+                    if (nodes.length === 0) {
+                        res.render('error', { errorMessage: 'All nodes are unreachable' });
+                    } else {
+                        let appointments = []
+
+                        try {
+                            for (let i = 0; i < nodes.length; i++) {
+                                let appointmentsFromNode = await db.query_node(nodes[i], sql);
+                                appointmentsFromNode.forEach(appointment => {
+                                    appointment.queue_date = appointment.queue_date.toDateString();
+                                    appointments.push(appointment);
+                                });
+                            }
+                            res.render('view', { appointments: appointments });
+                        } catch (error) {
+                            res.render('error', { errorMessage: 'An error occurred while fetching appointments: ' + error.message });
+                        }
+                    }
+                    console.log("Task getSearch() complete.");
+                    done();
+                }, 1000)
+            },
+            function(err, ret) {
+                console.log("[WARNING] " + sKey + "lock released...");
+            }, { shared: true });
+
     }
 
 };
