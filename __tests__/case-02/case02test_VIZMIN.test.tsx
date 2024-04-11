@@ -29,7 +29,6 @@ describe('GET /', () => {
       //await expect(response.status).toBe(200);
 
       // create a new entry
-/*
       let formData = {
         appointmentId: "-1",
         patientAge: 49,
@@ -47,25 +46,33 @@ describe('GET /', () => {
       .post('/create')
       .send(formData);
 
-      await expect(makeRes.status).toBe(200);*/
+      await expect(makeRes.status).toBe(200);
 
       
       const response = await request(app).get('/view');
       await expect(response.status).toBe(200);
 
+
       await expect(response.text).toContain("-1");
+      
+      
+      let formData2 = { appointmentId: "-1" };
+      const delRes = await request(app)
+      .post('/delete')
+      .send(formData2);
 
-      const response2 = await request(app).get('/');
-      await expect(response2.status).toBe(200);
+      if (delRes.status === 500) {
+        // Extract and log the error message from the response body
+        console.error('Error:', delRes.body.error);
+      }
 
+      await expect(delRes.status).toBe(200);
+
+          
+      // Your assertions or additional test code here
       const response3 = await request(app).get('/view');
       await expect(response3.status).toBe(200);
-
-       
-      await expect(response3.text).toContain("-1");
-
-      
-
+      await expect(response3.text).not.toContain("-1");
       
       
       //expect(response.text).toContain('Index Page'); // Replace 'Index Page' with your actual index page content
