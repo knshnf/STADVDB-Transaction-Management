@@ -84,9 +84,9 @@ const controller = {
     },
 
     postCreate: async function(req, res) { // done
-        if (req.body.appointmentId = null) {
+        if (req.body.appointmentId === null) {
             var appointmentId = cuid();
-        } else if (req.body.appointmendId = "-1") {
+        } else if (req.body.appointmendId === "-1") {
             var appointmentId = -1;
         } else { var appointmentId = cuid(); }
 
